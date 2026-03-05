@@ -2,287 +2,219 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>宇宙銀行ATM</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>宇宙銀行ATM｜チャッピー＆サリー</title>
   <style>
     :root{
-      --bg0:#070a14;
-      --bg1:#0b1030;
-      --card: rgba(255,255,255,.06);
-      --card2: rgba(255,255,255,.09);
-      --line: rgba(255,255,255,.12);
+      --bg1:#0a0f22;
+      --bg2:#050814;
+      --panel: rgba(20,26,45,.65);
+      --panel2: rgba(10,12,22,.55);
+      --stroke: rgba(255,255,255,.08);
       --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.68);
-      --gold: rgba(255,215,110,.95);
-      --gold2: rgba(255,195,90,.55);
-      --ok: rgba(70, 190, 140, .35);
-      --danger: rgba(240, 110, 120, .22);
-      --shadow: 0 18px 45px rgba(0,0,0,.45);
-      --r: 22px;
+      --muted: rgba(255,255,255,.72);
+      --gold: rgba(255,210,120,.95);
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 22px;
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    *{ box-sizing:border-box; }
     body{
       margin:0;
-      font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1000px 600px at 30% 10%, rgba(90,140,255,.18), transparent 55%),
-        radial-gradient(900px 500px at 70% 20%, rgba(255,210,120,.16), transparent 55%),
-        radial-gradient(900px 900px at 50% 110%, rgba(120,90,255,.14), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-      overflow-x:hidden;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      color: var(--text);
+      min-height:100vh;
+      background: radial-gradient(circle at 50% 20%, #1b2b5a, var(--bg2) 70%);
+      display:flex;
+      justify-content:center;
+      padding: 18px 12px 30px;
     }
 
-    .wrap{
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 18px 14px 28px;
+    .app{
+      width:min(860px, 100%);
     }
 
-    /* header pill */
     .topbar{
       display:flex;
+      gap:12px;
       align-items:center;
       justify-content:space-between;
-      gap:10px;
-      padding:14px 16px;
+      padding: 12px 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid var(--stroke);
       border-radius: 999px;
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
-      border:1px solid var(--line);
       box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
     }
+
     .brand{
       display:flex;
       align-items:center;
       gap:10px;
-      min-width:0;
+      min-width: 220px;
     }
     .dot{
-      width:10px;height:10px;border-radius:50%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(255,220,120,.95) 40%, rgba(255,180,70,.3));
-      box-shadow: 0 0 18px rgba(255,220,140,.35);
-      flex:0 0 auto;
+      width:10px;height:10px;border-radius:999px;
+      background: var(--gold);
+      box-shadow: 0 0 10px rgba(255,210,120,.6);
     }
-    .brand .t1{
-      font-weight:800;
-      letter-spacing:.02em;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    .brand .t2{
-      font-size:12px;
-      color:var(--muted);
-      margin-top:2px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    .brandtxt{min-width:0}
+    .titleWrap{ line-height:1.1; }
+    .title{ font-weight:700; letter-spacing:.02em; }
+    .sub{ font-size:12px; color: var(--muted); margin-top:3px; }
 
-    .actions{
-      display:flex; gap:10px; flex:0 0 auto;
+    .tabs{
+      display:flex;
+      gap:10px;
+      align-items:center;
     }
-    .btn{
-      appearance:none;
-      border:none;
-      color:var(--text);
-      font-weight:700;
-      border-radius:999px;
-      padding:10px 14px;
-      background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
-      border:1px solid rgba(255,255,255,.14);
-      box-shadow: 0 10px 20px rgba(0,0,0,.25);
+    .pill{
+      border-radius: 999px;
+      padding: 10px 14px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight:600;
       cursor:pointer;
-      transition: transform .08s ease, filter .12s ease;
-      user-select:none;
-      -webkit-tap-highlight-color: transparent;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25) inset;
     }
-    .btn:active{transform: scale(.98)}
-    .btn.gold{
-      border:1px solid rgba(255,220,140,.35);
-      background: linear-gradient(180deg, rgba(255,220,140,.18), rgba(255,255,255,.05));
-      box-shadow: 0 12px 26px rgba(255,200,120,.12), 0 10px 20px rgba(0,0,0,.25);
+    .pill.active{
+      border-color: rgba(255,210,120,.35);
+      background: rgba(255,210,120,.10);
     }
 
-    /* hero card */
-    .hero{
-      margin-top:16px;
-      border-radius: var(--r);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-      border:1px solid var(--line);
+    .stage{
+      margin-top: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow:hidden;
       position:relative;
     }
 
-    .heroMedia{
+    /* 画像エリア */
+    .hero{
       position:relative;
-      aspect-ratio: 16/9;
-      min-height: 220px;
-      background:#000;
-      overflow:hidden;
-    }
-
-    .heroMedia img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
-      filter: saturate(1.05) contrast(1.02);
-      transform: scale(1.01);
-    }
-
-    /* ✅ キャラを隠さない：吹き出しは「上側」に固定＋横幅制限 */
-    .welcome{
-      position:absolute;
-      left:16px;
-      top:14px;
-      max-width: min(380px, 82%);
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: rgba(0,0,0,.48);
-      border:1px solid rgba(255,255,255,.18);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 12px 26px rgba(0,0,0,.35);
-    }
-    .welcome .h{
-      font-weight:900;
-      letter-spacing:.02em;
-      margin:0 0 4px;
-      font-size: 18px;
-    }
-    .welcome .p{
-      margin:0;
-      font-size: 13px;
-      color: rgba(255,255,255,.78);
-      line-height:1.35;
-    }
-
-    /* small status pill bottom */
-    .statusPill{
-      position:absolute;
-      left:16px;
-      right:16px;
-      bottom:14px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.14);
-      backdrop-filter: blur(10px);
-    }
-    .pillLeft{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      min-width:0;
-    }
-    .pillTag{
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(0,0,0,.28);
-      font-weight:900;
-      font-size: 12px;
-      letter-spacing:.06em;
-      flex:0 0 auto;
-    }
-    .pillText{
-      font-size: 12px;
-      color: rgba(255,255,255,.78);
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    .pillRight{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      flex:0 0 auto;
-      color: rgba(255,255,255,.78);
-      font-size: 12px;
-    }
-    .dots{
-      display:flex; gap:6px;
-    }
-    .dotS{
-      width:8px;height:8px;border-radius:999px;
-      background: rgba(255,255,255,.18);
-      box-shadow:none;
-    }
-    .dotS.on{
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.95), rgba(255,220,120,.95));
-      box-shadow: 0 0 12px rgba(255,220,140,.25);
-    }
-
-    /* ATM panel */
-    .panel{
       padding: 14px;
     }
+    .heroFrame{
+      border-radius: 18px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      position:relative;
+    }
+    .heroImg{
+      width:100%;
+      height: 240px;
+      object-fit: cover;
+      display:block;
 
-    .atmRow{
+      /* 白フチ/背景に見えるものを軽減（完全保証ではない） */
+      mix-blend-mode: normal;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,.35));
+      image-rendering: auto;
+    }
+    .badge{
+      position:absolute;
+      left: 18px;
+      top: 18px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(10,12,22,.65);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      max-width: min(75%, 420px);
+    }
+    .badge .b1{ font-weight:800; font-size:18px; }
+    .badge .b2{ margin-top:6px; color: var(--muted); font-size:13px; }
+
+    /* 下の操作パネル */
+    .panel{
+      padding: 14px;
       display:grid;
-      grid-template-columns: 1fr 150px;
+      grid-template-columns: 1.2fr .8fr;
       gap: 12px;
-      margin-top: 12px;
+    }
+    @media (max-width:720px){
+      .panel{ grid-template-columns: 1fr; }
+      .heroImg{ height: 220px; }
     }
 
-    .pinBox{
+    .card{
+      background: rgba(12,16,30,.62);
+      border: 1px solid rgba(255,255,255,.10);
       border-radius: 18px;
-      background: rgba(0,0,0,.24);
-      border:1px solid rgba(255,255,255,.14);
-      padding: 14px 14px;
-      min-height: 76px;
+      padding: 14px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+    }
+
+    .row{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
-    }
-    .pinLeft{
-      min-width:0;
-    }
-    .pinLabel{
-      font-size: 12px;
-      color: rgba(255,255,255,.7);
-      letter-spacing:.06em;
-      margin-bottom:6px;
-    }
-    .pinValue{
-      font-weight:900;
-      font-size: 26px;
-      letter-spacing:.18em;
+      gap: 12px;
     }
 
-    .withdrawBtn{
-      border-radius: 18px;
-      border:1px solid rgba(255,220,140,.22);
-      background: linear-gradient(180deg, rgba(255,220,140,.16), rgba(255,255,255,.04));
-      box-shadow: 0 16px 26px rgba(0,0,0,.25);
-      padding: 14px 12px;
-      cursor:pointer;
-      text-align:center;
-      font-weight: 900;
-      user-select:none;
-      -webkit-tap-highlight-color: transparent;
-      transition: transform .08s ease, filter .12s ease;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:4px;
-    }
-    .withdrawBtn:active{transform: scale(.98)}
-    .withdrawBtn small{
-      display:block;
-      font-weight:800;
-      color: rgba(255,255,255,.75);
+    .label{
+      font-size:12px;
+      color: var(--muted);
       letter-spacing:.04em;
+    }
+    .pinBox{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      justify-content:flex-end;
+    }
+    .dots{
+      display:flex;
+      gap: 8px;
+      align-items:center;
+    }
+    .dotPin{
+      width:10px;height:10px;border-radius:999px;
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(255,255,255,.06);
+    }
+    .dotPin.filled{
+      background: rgba(255,210,120,.95);
+      border-color: rgba(255,210,120,.55);
+      box-shadow: 0 0 10px rgba(255,210,120,.4);
+    }
+
+    .pinValue{
+      font-weight:900;
+      font-size: 28px;
+      letter-spacing: .18em;
+      padding-left: 6px;
+      color: rgba(255,255,255,.92);
+    }
+
+    .btnBig{
+      width:100%;
+      padding: 18px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+      color: var(--text);
+      font-weight: 900;
+      cursor:pointer;
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+    }
+    .btnBig .small{
+      display:block;
+      margin-top:4px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight:700;
+      letter-spacing:.04em;
+    }
+    .btnBig.gold{
+      border-color: rgba(255,210,120,.20);
+      background: linear-gradient(180deg, rgba(255,210,120,.22), rgba(255,210,120,.08));
     }
 
     .keypad{
@@ -292,445 +224,439 @@
       gap: 10px;
     }
     .key{
-      border-radius: 18px;
-      padding: 16px 0;
-      text-align:center;
-      font-size: 22px;
+      padding: 16px 10px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-size: 20px;
       font-weight: 900;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      box-shadow: 0 12px 24px rgba(0,0,0,.22);
       cursor:pointer;
+      box-shadow: 0 10px 30px rgba(0,0,0,.18) inset;
       user-select:none;
-      -webkit-tap-highlight-color: transparent;
-      transition: transform .08s ease, filter .12s ease;
     }
-    .key:active{transform: scale(.98)}
-    .key.sub{
-      font-size: 18px;
-      font-weight: 900;
-    }
-    .key.danger{
-      background: linear-gradient(180deg, var(--danger), rgba(255,255,255,.04));
-      border:1px solid rgba(240,110,120,.22);
+    .key:active{ transform: translateY(1px); }
+
+    .key.del{
+      background: rgba(255,120,120,.10);
+      border-color: rgba(255,120,120,.18);
     }
     .key.ok{
-      background: linear-gradient(180deg, var(--ok), rgba(255,255,255,.04));
-      border:1px solid rgba(70,190,140,.25);
+      background: rgba(120,255,180,.10);
+      border-color: rgba(120,255,180,.20);
     }
 
-    /* toast */
-    .toast{
-      position: fixed;
-      left: 50%;
-      bottom: 18px;
-      transform: translateX(-50%);
-      width: min(520px, calc(100% - 22px));
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: rgba(0,0,0,.62);
-      border:1px solid rgba(255,255,255,.18);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 16px 34px rgba(0,0,0,.45);
-      opacity:0;
-      pointer-events:none;
-      transition: opacity .2s ease, transform .2s ease;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      z-index: 50;
-    }
-    .toast.show{
-      opacity:1;
-      transform: translateX(-50%) translateY(-4px);
-    }
-    .toast .t{
-      font-weight:900;
-    }
-    .toast .x{
-      border:none;
-      background: rgba(255,255,255,.09);
-      color: var(--text);
-      border-radius: 12px;
-      padding: 8px 10px;
-      font-weight:900;
-      cursor:pointer;
-    }
-
-    /* modal */
-    .modalBack{
-      position:fixed; inset:0;
-      background: rgba(0,0,0,.55);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding: 18px;
-      z-index: 60;
-    }
-    .modalBack.show{display:flex;}
-    .modal{
-      width:min(560px, 100%);
-      border-radius: 22px;
-      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
-      border:1px solid rgba(255,255,255,.18);
-      box-shadow: 0 24px 55px rgba(0,0,0,.55);
-      backdrop-filter: blur(12px);
-      padding: 16px;
-    }
-    .modal h3{
-      margin:0 0 8px;
-      font-weight: 950;
-      letter-spacing:.02em;
-    }
-    .modal p{
-      margin:0 0 10px;
-      color: rgba(255,255,255,.78);
-      line-height:1.5;
-    }
-    .modal .row{
-      display:flex;
-      gap:10px;
-      justify-content:flex-end;
-      margin-top: 10px;
-    }
-
-    /* 💸 money burst (random) */
+    /* 受け取り演出 */
     .burstLayer{
       position:absolute;
       inset:0;
       pointer-events:none;
       overflow:hidden;
-      z-index: 8;
     }
     .money{
       position:absolute;
-      width: 140px;
-      height:auto;
+      left: 50%;
+      top: 55%;
+      transform: translate(-50%,-50%);
+      width: clamp(64px, 12vw, 96px);
       opacity:0;
-      filter: drop-shadow(0 18px 30px rgba(0,0,0,.35));
-      animation: fly 1.25s ease-out forwards;
+      filter: drop-shadow(0 12px 20px rgba(0,0,0,.45));
+      /* 白っぽい縁を目立たせにくくする */
+      mix-blend-mode: normal;
+    }
+    .money.fly{
+      animation: fly 1.1s ease-out forwards;
     }
     @keyframes fly{
       0%{
-        transform: translate(var(--sx), var(--sy)) rotate(var(--rot)) scale(.72);
         opacity:0;
+        transform: translate(-50%,-50%) scale(.65) rotate(0deg);
       }
-      10%{opacity:1;}
-      75%{opacity:1;}
+      10%{ opacity:1; }
       100%{
-        transform: translate(var(--tx), var(--ty)) rotate(calc(var(--rot) + 18deg)) scale(1.02);
         opacity:0;
+        transform: translate(var(--dx), var(--dy)) scale(var(--sc)) rotate(var(--rt));
       }
     }
 
-    /* responsive */
-    @media (max-width: 520px){
-      .atmRow{grid-template-columns: 1fr 128px;}
-      .pinValue{font-size: 24px;}
-      .welcome .h{font-size: 17px;}
+    .toast{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      background: rgba(10,12,22,.82);
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 12px 14px;
+      border-radius: 14px;
+      color: rgba(255,255,255,.92);
+      box-shadow: 0 18px 50px rgba(0,0,0,.45);
+      display:none;
+      max-width: min(92vw, 560px);
+      z-index: 999;
     }
+
+    /* 表示切替 */
+    .hidden{ display:none !important; }
   </style>
 </head>
-
 <body>
-  <div class="wrap">
+  <div class="app">
     <div class="topbar">
       <div class="brand">
-        <span class="dot" aria-hidden="true"></span>
-        <div class="brandtxt">
-          <div class="t1">宇宙銀行ATM</div>
-          <div class="t2">チャッピー＆サリー</div>
+        <div class="dot"></div>
+        <div class="titleWrap">
+          <div class="title">宇宙銀行ATM</div>
+          <div class="sub">チャッピー＆サリー</div>
         </div>
       </div>
-      <div class="actions">
-        <button class="btn" id="resetBtn">最初から</button>
-        <button class="btn gold" id="hintBtn">暗証番号ヒント</button>
+
+      <div class="tabs">
+        <button class="pill" id="btnReset">最初から</button>
+        <button class="pill active" id="btnHint">暗証番号ヒント</button>
       </div>
     </div>
 
-    <section class="hero" id="hero">
-      <div class="heroMedia">
-        <img id="mainImg" src="images/cosmic_bank_gate.png" alt="宇宙銀行ゲート" />
-        <div class="burstLayer" id="burst"></div>
+    <div class="stage" id="stage">
+      <!-- 演出レイヤー（共通） -->
+      <div class="burstLayer" id="burstLayer"></div>
 
-        <div class="welcome" id="welcomeBox">
-          <p class="h" id="welcomeTitle">ようこそ、宇宙銀行へ</p>
-          <p class="p" id="welcomeText">暗証番号を入力してね。</p>
-        </div>
-
-        <div class="statusPill">
-          <div class="pillLeft">
-            <span class="pillTag" id="modeTag">GATE</span>
-            <span class="pillText" id="pillText">数字を4つ入力 → OKでATMに切替</span>
-          </div>
-          <div class="pillRight">
-            <span>PIN:</span>
-            <div class="dots" id="pinDotsTop" aria-label="pin dots top"></div>
+      <div class="hero">
+        <div class="heroFrame">
+          <img id="mainImg" class="heroImg" alt="宇宙銀行の画像" />
+          <div class="badge" id="badge">
+            <div class="b1" id="badgeTitle">ようこそ、宇宙銀行へ</div>
+            <div class="b2" id="badgeText">🐾🔘 で入店してね。</div>
           </div>
         </div>
       </div>
 
       <div class="panel">
-        <div class="atmRow">
-          <div class="pinBox">
-            <div class="pinLeft">
-              <div class="pinLabel">暗証番号</div>
+        <!-- 左：PIN表示 -->
+        <div class="card" id="leftCard">
+          <div class="row">
+            <div>
+              <div class="label" id="sceneLabel">GATE</div>
+              <div class="sub" style="margin-top:6px" id="sceneHelp">入店したらATMへ切り替わるよ</div>
+            </div>
+            <div class="pinBox">
+              <div class="label">PIN:</div>
+              <div class="dots" id="pinDots"></div>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top:14px">
+            <div>
+              <div class="label">暗証番号</div>
               <div class="pinValue" id="pinValue">----</div>
             </div>
-            <div class="dots" id="pinDots" aria-label="pin dots"></div>
+            <button class="btnBig gold" id="primaryBtn">
+              🐾🔘 入店
+              <span class="small">宇宙銀行へ</span>
+            </button>
           </div>
 
-          <div class="withdrawBtn" id="withdrawBtn">
-            引き出す
-            <small id="withdrawSub">ATMから</small>
+          <!-- テンキー（ATM時だけ） -->
+          <div class="keypad hidden" id="keypad">
+            <div class="key" data-key="1">1</div>
+            <div class="key" data-key="2">2</div>
+            <div class="key" data-key="3">3</div>
+            <div class="key" data-key="4">4</div>
+            <div class="key" data-key="5">5</div>
+            <div class="key" data-key="6">6</div>
+            <div class="key" data-key="7">7</div>
+            <div class="key" data-key="8">8</div>
+            <div class="key" data-key="9">9</div>
+            <div class="key del" data-key="del">けす</div>
+            <div class="key" data-key="0">0</div>
+            <div class="key ok" data-key="ok">OK</div>
           </div>
         </div>
 
-        <div class="keypad" id="keypad">
-          <!-- numbers -->
+        <!-- 右：アクション -->
+        <div class="card">
+          <div class="label">操作</div>
+
+          <button class="btnBig" id="secondaryBtn" style="margin-top:12px">
+            受け取ります 🔘
+            <span class="small">ATMから</span>
+          </button>
+
+          <div style="margin-top:12px;color:var(--muted);font-size:12px;line-height:1.6">
+            ・暗証番号は4桁<br/>
+            ・「受け取ります」で演出が始まるよ<br/>
+            ・ランダム：トロッコ／トレイン／札束／1億／5億
+          </div>
         </div>
-      </div>
-    </section>
-  </div>
-
-  <div class="toast" id="toast">
-    <div class="t" id="toastText">ありがと〜ご財増した〜</div>
-    <button class="x" id="toastClose">OK</button>
-  </div>
-
-  <div class="modalBack" id="modalBack">
-    <div class="modal">
-      <h3>暗証番号ヒント</h3>
-      <p>あなたの「宇宙銀行暗証番号」を入れてね✨</p>
-      <p style="margin-top:6px; font-weight:900;">例：8888 / 7777 / 3690 など</p>
-      <p style="margin-top:6px;">OKでATMに切り替わって、引き出し演出ができるよ💸</p>
-      <div class="row">
-        <button class="btn" id="modalClose">とじる</button>
       </div>
     </div>
   </div>
 
+  <div class="toast" id="toast"></div>
+
   <script>
-    // ===== settings =====
-    const IMG_GATE = "images/cosmic_bank_gate.png";
-    const IMG_ATM  = "images/cosmic_bank_atm.png";
+    // ====== ここを必要なら変える（画像の場所） ======
+    // GitHub Pages: /space-bank-atm/ の場合でも相対でOKにしてある
+    const IMG = {
+      gate: "images/cosmic_bank_gate.png",
+      atm:  "images/cosmic_bank_atm.png",
 
-    const MONEY_IMAGES = [
-      "images/cosmic_bill_10ku.png",
-      "images/cosmic_bill_50ku.png",
-      "images/cosmic_bill_infinity.png",
-      "images/cosmic_bill_wave.png",
-      "images/cosmic_money_stack.png",
-      "images/chappy_coin.png",
-      "images/sally_coin.png"
-    ];
+      // 報酬（この名前で images/ に入れてね）
+      rewards: [
+        {src:"images/cosmic_bill_1oku.png",  name:"一億円"},
+        {src:"images/cosmic_bill_5oku.png",  name:"五億円"},
+        {src:"images/cosmic_money_stack.png",name:"札束"},
+        {src:"images/cosmic_bill_wave.png",  name:"波動札束"},
+        {src:"images/cosmic_bill_infinity.png",name:"無限札束"},
 
-    // ===== state =====
+        // 追加したい演出（このファイル名で入れたら出る）
+        {src:"images/cosmic_trocco.png", name:"トロッコ"},
+        {src:"images/cosmic_train.png",  name:"トレイン"},
+      ]
+    };
+
+    // ====== 状態 ======
+    let scene = "GATE"; // "GATE" | "ATM" | "REWARD"
     let pin = "";
-    let mode = "GATE"; // GATE or ATM
+    let unlocked = false; // OK押したらtrue
 
-    // ===== el =====
+    // ====== DOM ======
     const mainImg = document.getElementById("mainImg");
-    const modeTag = document.getElementById("modeTag");
-    const pillText = document.getElementById("pillText");
-    const pinValue = document.getElementById("pinValue");
-    const pinDots = document.getElementById("pinDots");
-    const pinDotsTop = document.getElementById("pinDotsTop");
-    const keypad = document.getElementById("keypad");
+    const badgeTitle = document.getElementById("badgeTitle");
+    const badgeText  = document.getElementById("badgeText");
+    const sceneLabel = document.getElementById("sceneLabel");
+    const sceneHelp  = document.getElementById("sceneHelp");
+    const pinValue   = document.getElementById("pinValue");
+    const pinDots    = document.getElementById("pinDots");
+    const keypad     = document.getElementById("keypad");
+    const primaryBtn = document.getElementById("primaryBtn");
+    const secondaryBtn = document.getElementById("secondaryBtn");
+    const burstLayer = document.getElementById("burstLayer");
     const toast = document.getElementById("toast");
-    const toastText = document.getElementById("toastText");
-    const toastClose = document.getElementById("toastClose");
-    const burst = document.getElementById("burst");
 
-    const resetBtn = document.getElementById("resetBtn");
-    const hintBtn = document.getElementById("hintBtn");
-    const withdrawBtn = document.getElementById("withdrawBtn");
-    const withdrawSub = document.getElementById("withdrawSub");
+    const btnReset = document.getElementById("btnReset");
+    const btnHint  = document.getElementById("btnHint");
 
-    const modalBack = document.getElementById("modalBack");
-    const modalClose = document.getElementById("modalClose");
+    // ====== 初期化 ======
+    init();
 
-    const welcomeTitle = document.getElementById("welcomeTitle");
-    const welcomeText = document.getElementById("welcomeText");
-
-    // ===== helpers =====
-    function renderDots(targetEl){
-      targetEl.innerHTML = "";
-      for(let i=0;i<4;i++){
-        const d = document.createElement("span");
-        d.className = "dotS" + (i < pin.length ? " on" : "");
-        targetEl.appendChild(d);
-      }
+    function init(){
+      buildDots();
+      goGate();
+      wire();
     }
 
-    function render(){
-      // top + bottom dots
-      renderDots(pinDots);
-      renderDots(pinDotsTop);
+    function wire(){
+      primaryBtn.addEventListener("click", () => {
+        if(scene === "GATE") goATM();
+      });
 
-      // pin value
-      pinValue.textContent = (pin + "----").slice(0,4);
+      secondaryBtn.addEventListener("click", () => {
+        if(scene === "GATE"){
+          showToast("まず 🐾🔘 で入店してね🐾");
+          return;
+        }
+        if(pin.length < 4){
+          showToast("暗証番号を4桁いれてね🐾");
+          return;
+        }
+        if(!unlocked){
+          showToast("OKで認証してから受け取ろう🐾");
+          return;
+        }
+        startReward();
+      });
 
-      // mode
-      modeTag.textContent = mode;
+      keypad.addEventListener("click", (e)=>{
+        const k = e.target?.dataset?.key;
+        if(!k) return;
 
-      if(mode === "GATE"){
-        mainImg.src = IMG_GATE;
-        pillText.textContent = "数字を4つ入力 → OKでATMに切替";
-        withdrawSub.textContent = "（まだ入れない）";
-        withdrawBtn.style.filter = "grayscale(1) brightness(.9)";
-        withdrawBtn.style.pointerEvents = "none";
-        welcomeTitle.textContent = "ようこそ、宇宙銀行へ";
-        welcomeText.textContent = "暗証番号を入力してね。";
-      }else{
-        mainImg.src = IMG_ATM;
-        pillText.textContent = "OKで認証 / 引き出すで実行";
-        withdrawSub.textContent = "ATMから";
-        withdrawBtn.style.filter = "none";
-        withdrawBtn.style.pointerEvents = "auto";
-        welcomeTitle.textContent = "宇宙銀行ATM";
-        welcomeText.textContent = "もう一回引き出してもOKだよ。";
-      }
+        if(k === "del"){
+          pin = pin.slice(0,-1);
+          unlocked = false;
+          updatePinUI();
+          return;
+        }
+        if(k === "ok"){
+          if(pin.length < 4){
+            showToast("4桁そろえてからOKね🐾");
+            return;
+          }
+          unlocked = true;
+          showToast("認証OK🐾 受け取ります🔘 を押してね");
+          updatePinUI();
+          return;
+        }
+
+        if(pin.length >= 4) return;
+        pin += k;
+        unlocked = false;
+        updatePinUI();
+      });
+
+      btnReset.addEventListener("click", resetAll);
+      btnHint.addEventListener("click", () => {
+        showToast("ヒント：あなたの“宇宙銀行暗証番号”をどうぞ🐾✨（例：8888/7777など）");
+      });
     }
 
-    function showToast(msg){
-      toastText.textContent = msg;
-      toast.classList.add("show");
-      clearTimeout(showToast._t);
-      showToast._t = setTimeout(()=>toast.classList.remove("show"), 1600);
-    }
-
-    function rand(min,max){ return Math.random()*(max-min)+min; }
-
-    function moneyBurst(){
-      // 1回で4〜7個飛ばす
-      const count = Math.floor(rand(4,8));
-      const rect = burst.getBoundingClientRect();
-
-      for(let i=0;i<count;i++){
-        const img = document.createElement("img");
-        img.className = "money";
-        img.src = MONEY_IMAGES[Math.floor(Math.random()*MONEY_IMAGES.length)];
-        img.alt = "money";
-
-        // start (ATM出口っぽく右側寄り)
-        const sx = rect.width * 0.70 + rand(-40, 40);
-        const sy = rect.height * 0.70 + rand(-20, 30);
-
-        // target（上方向に飛ぶ）
-        const tx = rand(-60, rect.width + 60);
-        const ty = rand(-140, rect.height * 0.20);
-
-        const rot = rand(-18, 18);
-
-        img.style.left = "0px";
-        img.style.top  = "0px";
-        img.style.setProperty("--sx", sx + "px");
-        img.style.setProperty("--sy", sy + "px");
-        img.style.setProperty("--tx", tx + "px");
-        img.style.setProperty("--ty", ty + "px");
-        img.style.setProperty("--rot", rot + "deg");
-
-        burst.appendChild(img);
-
-        // cleanup
-        img.addEventListener("animationend", ()=> img.remove());
-      }
-    }
-
-    function setMode(next){
-      mode = next;
-      pin = ""; // mode切替のたびにクリア（気持ちよく）
-      render();
-    }
-
-    // ===== keypad build =====
-    function addKey(label, onClick, extraClass=""){
-      const b = document.createElement("div");
-      b.className = "key " + (extraClass||"");
-      b.textContent = label;
-      b.addEventListener("click", onClick);
-      keypad.appendChild(b);
-    }
-
-    function buildKeypad(){
-      keypad.innerHTML = "";
-      // 1-9
-      for(let n=1;n<=9;n++){
-        addKey(String(n), ()=> inputDigit(String(n)));
-      }
-      // clear / 0 / ok
-      addKey("けす", ()=> clearPin(), "sub danger");
-      addKey("0", ()=> inputDigit("0"));
-      addKey("OK", ()=> okAction(), "sub ok");
-    }
-
-    function inputDigit(d){
-      if(pin.length >= 4) return;
-      pin += d;
-      render();
-      // 4桁埋まったら軽く“入った感”
-      if(pin.length === 4) showToast("PIN入力OK✨");
-    }
-
-    function clearPin(){
+    // ====== 画面遷移 ======
+    function goGate(){
+      scene = "GATE";
+      unlocked = false;
       pin = "";
-      render();
-      showToast("けしたよ🐾");
+      updatePinUI();
+
+      mainImg.src = IMG.gate;
+      mainImg.style.display = "block";
+
+      badgeTitle.textContent = "ようこそ、宇宙銀行へ";
+      badgeText.textContent  = "🐾🔘 で入店してね。";
+
+      sceneLabel.textContent = "GATE";
+      sceneHelp.textContent  = "入店したらATMへ切り替わるよ";
+
+      keypad.classList.add("hidden");
+
+      primaryBtn.innerHTML = `🐾🔘 入店<span class="small">宇宙銀行へ</span>`;
+      secondaryBtn.innerHTML = `受け取ります 🔘<span class="small">ATMから</span>`;
+
+      document.body.style.background =
+        "radial-gradient(circle at 50% 20%, #1b2b5a, #050814 70%)";
     }
 
-    function okAction(){
-      if(pin.length < 4){
-        showToast("4桁いれてね🐾");
-        return;
-      }
-      // GATEならATMへ
-      if(mode === "GATE"){
-        showToast("ゲートOPEN✨ ATMへ！");
-        setMode("ATM");
-        return;
-      }
-      // ATMのOKは「認証」
-      showToast("認証OK✨");
+    function goATM(){
+      scene = "ATM";
+      unlocked = false;
+      pin = "";
+      updatePinUI();
+
+      mainImg.src = IMG.atm;
+      mainImg.style.display = "block";
+
+      badgeTitle.textContent = "宇宙銀行ATM";
+      badgeText.textContent  = "暗証番号を入力してね。";
+
+      sceneLabel.textContent = "ATM";
+      sceneHelp.textContent  = "OKで認証 / 受け取りますで実行";
+
+      keypad.classList.remove("hidden");
+
+      primaryBtn.innerHTML = `最初から<span class="small">ゲートへ</span>`;
+      primaryBtn.onclick = resetAll; // 入店ボタンを「最初から」に
+
+      secondaryBtn.innerHTML = `受け取ります 🔘<span class="small">ATMから</span>`;
     }
 
-    // Withdraw action
-    function withdraw(){
-      if(mode !== "ATM"){
-        showToast("まずOKでATMへ🐾");
-        return;
-      }
-      if(pin.length < 4){
-        showToast("4桁いれてね🐾");
-        return;
-      }
-      moneyBurst();
+    function startReward(){
+      scene = "REWARD";
+
+      // ATM画像を消す（ここがポイント）
+      mainImg.style.display = "none";
+
+      // 背景を宇宙っぽく
+      document.body.style.background =
+        "radial-gradient(circle at 50% 20%, #2a1b5a, #050814 70%)";
+
+      badgeTitle.textContent = "ご財増しタイム✨";
+      badgeText.textContent  = "ランダムで飛び出すよ〜！";
+
+      sceneLabel.textContent = "REWARD";
+      sceneHelp.textContent  = "もう一回受け取ってもOKだよ🐾";
+
+      // ここで演出
+      rewardBurst();
       showToast("ありがと〜ご財増した〜💸✨");
     }
 
-    // ===== modal =====
-    hintBtn.addEventListener("click", ()=>{
-      modalBack.classList.add("show");
-    });
-    modalClose.addEventListener("click", ()=>{
-      modalBack.classList.remove("show");
-    });
-    modalBack.addEventListener("click", (e)=>{
-      if(e.target === modalBack) modalBack.classList.remove("show");
-    });
+    function resetAll(){
+      // primaryBtnのonclickを戻す
+      primaryBtn.onclick = null;
+      primaryBtn.addEventListener("click", () => {
+        if(scene === "GATE") goATM();
+      }, {once:true});
 
-    // ===== buttons =====
-    resetBtn.addEventListener("click", ()=>{
-      setMode("GATE");
-      showToast("最初から🐶🌈");
-    });
-    withdrawBtn.addEventListener("click", withdraw);
-    toastClose.addEventListener("click", ()=> toast.classList.remove("show"));
+      goGate();
+      clearBurst();
+    }
 
-    // ===== init =====
-    buildKeypad();
-    render();
+    // ====== PIN UI ======
+    function buildDots(){
+      pinDots.innerHTML = "";
+      for(let i=0;i<4;i++){
+        const d = document.createElement("div");
+        d.className = "dotPin";
+        pinDots.appendChild(d);
+      }
+    }
+    function updatePinUI(){
+      pinValue.textContent = (pin + "----").slice(0,4);
+      [...pinDots.children].forEach((d,i)=>{
+        d.classList.toggle("filled", i < pin.length);
+      });
+
+      // 認証済みならちょっとだけ雰囲気出す
+      if(unlocked){
+        badgeText.textContent = "認証OK！受け取ります🔘 を押してね。";
+      }
+    }
+
+    // ====== 報酬演出 ======
+    function rewardBurst(){
+      clearBurst();
+
+      // ランダムで1種類を選ぶ
+      const pool = IMG.rewards.slice();
+      const pick = pool[Math.floor(Math.random()*pool.length)];
+
+      // 1回の押下で「同じ画像を複数」飛ばす（気持ちいい）
+      const count = 8 + Math.floor(Math.random()*5); // 8〜12個
+
+      for(let i=0;i<count;i++){
+        spawnMoney(pick.src, i);
+      }
+    }
+
+    function spawnMoney(src, i){
+      const el = document.createElement("img");
+      el.className = "money";
+      el.alt = "reward";
+      el.src = src;
+
+      // 画面中央付近から飛ばす
+      const rect = document.getElementById("stage").getBoundingClientRect();
+      const dx = (Math.random()*2 - 1) * (rect.width * (0.45 + Math.random()*0.25));
+      const dy = (Math.random()*-1) * (rect.height * (0.35 + Math.random()*0.35)) + (Math.random()*60);
+
+      const sc = 0.70 + Math.random()*0.55;
+      const rt = (Math.random()*2 - 1) * 70;
+
+      el.style.setProperty("--dx", dx + "px");
+      el.style.setProperty("--dy", dy + "px");
+      el.style.setProperty("--sc", sc);
+      el.style.setProperty("--rt", rt + "deg");
+
+      // 少しずつ時間差で
+      setTimeout(()=>{
+        burstLayer.appendChild(el);
+        el.classList.add("fly");
+      }, i * 35);
+
+      // アニメ終わったら掃除
+      setTimeout(()=> el.remove(), 1400 + i*35);
+    }
+
+    function clearBurst(){
+      burstLayer.innerHTML = "";
+    }
+
+    // ====== Toast ======
+    let toastTimer = null;
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.style.display = "block";
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(()=> toast.style.display = "none", 2400);
+    }
   </script>
 </body>
 </html>
