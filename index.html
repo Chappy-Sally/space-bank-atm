@@ -175,4 +175,263 @@
       border:1px solid #2c3172;
     }
     .primary:hover{ filter:brightness(1.02); box-shadow:0 22px 56px #000a; }
-    .ghost:hover{ filter:brightness
+    .ghost:hover{ filter:brightness(1.06); }
+
+    .resultBox{
+      margin-top:14px;
+      border-radius:16px;
+      padding:14px;
+      border:1px dashed #3a3f86;
+      background:#090b20;
+      min-height:120px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .result{
+      font-size:22px;
+      font-weight:900;
+      line-height:1.4;
+      text-shadow:0 10px 25px #000;
+    }
+    .result small{
+      display:block;
+      margin-top:10px;
+      color:#cfd2ff;
+      font-weight:700;
+      font-size:14px;
+      opacity:.95;
+    }
+
+    /* コイン演出 */
+    .coin{
+      position:absolute;
+      width:34px; height:34px;
+      border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, #fff6, transparent 45%),
+                  radial-gradient(circle at 30% 30%, #ffeaa8 0%, #ffcf4f 55%, #d08a00 100%);
+      box-shadow: 0 12px 30px #0008;
+      opacity:0;
+      transform: translateY(0) scale(.8) rotate(0deg);
+      animation: pop 900ms ease-out forwards;
+    }
+    .coin:after{
+      content:"★";
+      position:absolute; inset:0;
+      display:grid; place-items:center;
+      font-weight:900;
+      color:#6a3b00;
+      text-shadow:0 2px 0 #fff7;
+      opacity:.9;
+    }
+    @keyframes pop{
+      0%{opacity:0; transform:translateY(20px) scale(.6) rotate(-30deg)}
+      20%{opacity:1}
+      100%{opacity:0; transform:translateY(-120px) scale(1.15) rotate(120deg)}
+    }
+
+    /* お札束演出 */
+    .bundle{
+      position:absolute;
+      width:82px; height:48px;
+      border-radius:10px;
+      background: linear-gradient(180deg, #eafff2, #bff3d6);
+      border:1px solid #67c9a0;
+      box-shadow:0 16px 40px #0009;
+      opacity:0;
+      transform: translateY(0) scale(.85) rotate(0deg);
+      animation: pop2 1000ms ease-out forwards;
+      overflow:hidden;
+    }
+    .bundle:before{
+      content:"";
+      position:absolute; left:8px; right:8px; top:18px; height:10px;
+      background: linear-gradient(90deg, #ffd36a, #ffb700);
+      border-radius:6px;
+      opacity:.95;
+    }
+    .bundle:after{
+      content:"💴";
+      position:absolute; right:8px; top:6px;
+      font-size:18px;
+      filter: drop-shadow(0 6px 12px #0007);
+    }
+    @keyframes pop2{
+      0%{opacity:0; transform:translateY(30px) scale(.65) rotate(-18deg)}
+      18%{opacity:1}
+      100%{opacity:0; transform:translateY(-140px) scale(1.1) rotate(16deg)}
+    }
+
+    .footer{
+      margin-top:16px;
+      text-align:center;
+      color:#bfc2ea;
+      font-size:13px;
+      line-height:1.7;
+      opacity:.95;
+    }
+    .footer b{ color:var(--gold); }
+
+    @media (min-width:760px){
+      .grid{ grid-template-columns: 1.3fr .7fr; }
+      .card{ padding:18px 18px; }
+      .result{ font-size:24px; }
+    }
+  </style>
+</head>
+
+<body class="stars">
+  <div class="wrap">
+    <header class="header">
+      <div class="badge">
+        <span class="emoji">🏦🌌</span>
+        <span>宇宙銀行ATM</span>
+        <span class="emoji">💛✨</span>
+      </div>
+      <h1>好きなときに、好きなだけどうぞ</h1>
+      <p class="sub">
+        遠隔は不要。<b>宇宙さん</b>が頭取。<br>
+        チャッピーはコンシェルジュ、サリーは秘書🐾
+      </p>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <div class="row">
+          <div class="title">💳 宇宙くじ（ATM）</div>
+          <div class="tiny">
+            <span class="pill">手数料：ありがと〜💛</span>
+            <span class="pill">笑うと増えます</span>
+          </div>
+        </div>
+
+        <div class="btns">
+          <button class="primary" id="btnDraw">💴 受け取り増す！</button>
+          <button class="ghost" id="btnBundle">💴 束ポーン！</button>
+          <button class="ghost" id="btnGift">🎁 宇宙ギフト</button>
+          <button class="ghost" id="btnReset">🔁 リセット</button>
+        </div>
+
+        <div class="resultBox" id="stage" aria-live="polite">
+          <div class="result" id="result">
+            ボタンを押したら、宇宙銀行ATMが作動するよ✨
+            <small>合言葉：ぜ〜んぶ受取り増した〜✨</small>
+          </div>
+        </div>
+
+        <div class="footer">
+          豊かさは<b>遊び</b>から🌈　今日も<b>ありがと〜ご財増した〜💛</b>
+        </div>
+      </section>
+
+      <aside class="card">
+        <div class="row">
+          <div class="title">🌌 宇宙さん気分ボーナス</div>
+          <div class="tiny"><span class="pill">いつでもOK</span></div>
+        </div>
+        <p style="margin:0;color:#d6d8ff;line-height:1.8;font-weight:650">
+          ・深呼吸ひとつでOK<br>
+          ・「受け取る練習」大歓迎<br>
+          ・金額は宇宙さん裁量（だいたいバグる🤣）<br><br>
+          <span style="color:var(--gold);font-weight:900">
+            今日のひとこと：ぜ〜んぶ受取り増した〜✨
+          </span>
+        </p>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    const stage = document.getElementById("stage");
+    const resultEl = document.getElementById("result");
+
+    const moneyResults = [
+      "💴 10万円 ポーン！",
+      "💴 50万円 ポーン！",
+      "💴 100万円 ポーン！",
+      "💴💴 300万円 ポーン！ポーン！",
+      "💴💴 500万円 ポーン！ポーン！",
+      "💴💴💴 1000万円 ドーン！",
+      "💴💴💴💴 1億円 ドドーン！！🤣",
+      "🏦 VIP金庫が開いた…（なにこれ）✨"
+    ];
+
+    const bundleResults = [
+      "💴💴💴 100万円の束がATMからポーン！！",
+      "💴💴💴 100万円の束×3がポーン！ポーン！ポーン！",
+      "💴💴💴 札束が止まらない（宇宙さん仕事しすぎ）🤣",
+      "💴💴💴 いくらかわからない金額（④）🤣🤣"
+    ];
+
+    const giftResults = [
+      "🎁 宇宙ギフト：うれしい連絡が来る",
+      "🎁 宇宙ギフト：タイミングが神になる",
+      "🎁 宇宙ギフト：欲しかったものが手に入る",
+      "🎁 宇宙ギフト：なぜか臨時収入の気配",
+      "🍀 ラッキー：ミラクルが起きる予感",
+      "✨ ボーナス：安心が増えて、流れが良くなる"
+    ];
+
+    function pick(arr){
+      return arr[Math.floor(Math.random()*arr.length)];
+    }
+
+    function setResult(mainText){
+      resultEl.innerHTML = `${mainText}<small>ぜ〜んぶ受取り増した〜✨　ありがと〜ご財増した〜💛</small>`;
+    }
+
+    function spawnCoin(count=10){
+      for(let i=0;i<count;i++){
+        const c = document.createElement("div");
+        c.className = "coin";
+        c.style.left = (10 + Math.random()*80) + "%";
+        c.style.bottom = (10 + Math.random()*10) + "px";
+        c.style.animationDelay = (Math.random()*180) + "ms";
+        c.style.transform = `translateY(0) scale(${0.7+Math.random()*0.7}) rotate(${(Math.random()*60-30)}deg)`;
+        stage.appendChild(c);
+        setTimeout(()=>c.remove(), 1100);
+      }
+    }
+
+    function spawnBundle(count=4){
+      for(let i=0;i<count;i++){
+        const b = document.createElement("div");
+        b.className = "bundle";
+        b.style.left = (10 + Math.random()*80) + "%";
+        b.style.bottom = (8 + Math.random()*10) + "px";
+        b.style.animationDelay = (Math.random()*220) + "ms";
+        b.style.transform = `translateY(0) scale(${0.75+Math.random()*0.55}) rotate(${(Math.random()*26-13)}deg)`;
+        stage.appendChild(b);
+        setTimeout(()=>b.remove(), 1200);
+      }
+    }
+
+    document.getElementById("btnDraw").addEventListener("click", ()=>{
+      const r = pick(moneyResults);
+      setResult(r);
+      spawnCoin(14);
+    });
+
+    document.getElementById("btnBundle").addEventListener("click", ()=>{
+      const r = pick(bundleResults);
+      setResult(r);
+      spawnBundle(6);
+      spawnCoin(10);
+    });
+
+    document.getElementById("btnGift").addEventListener("click", ()=>{
+      const r = pick(giftResults);
+      setResult(r);
+      spawnCoin(8);
+    });
+
+    document.getElementById("btnReset").addEventListener("click", ()=>{
+      resultEl.innerHTML = `ボタンを押したら、宇宙銀行ATMが作動するよ✨<small>合言葉：ぜ〜んぶ受取り増した〜✨</small>`;
+      spawnCoin(6);
+    });
+  </script>
+</body>
+</html>
