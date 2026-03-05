@@ -1,38 +1,21 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="ja">
 <head>
-<title>宇宙銀行ATM</title>
-</head>
-
-<body style="text-align:center; font-family:sans-serif; background:black; color:gold;">
-
-<h1>🌌宇宙銀行ATM🌌</h1>
-
-<p>遠慮は不要</p>
-<p>好きなだけどうぞ</p>
-
-<button onclick="atm()">宇宙くじスタート</button>
-
-<h2 id="result"></h2>
-
-<script>
-function atm(){
-
-const results = [
-"💴100万円ポーン！",
-"💴💴500万円ポーン！",
-"💴💴💴1000万円ポーン！",
-"💴💴💴💴1億円ドーン！",
-"🎁宇宙さんからプレゼント",
-"🌌宇宙さん気分ボーナス"
-];
-
-const r = results[Math.floor(Math.random()*results.length)];
-
-document.getElementById("result").innerHTML = r + "<br><br>今日も豊かさ受取り増した〜✨";
-
-}
-</script>
-
-</body>
-</html>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>宇宙銀行ATM</title>
+  <style>
+    :root{
+      --bg1:#050510;
+      --bg2:#0b0b1f;
+      --gold:#ffd36a;
+      --gold2:#ffb700;
+      --text:#f5f6ff;
+      --muted:#c9cbe6;
+      --card:#0e1026cc;
+      --border:#2b2f66;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", Segoe UI, Rob
