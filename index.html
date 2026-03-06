@@ -14,7 +14,6 @@
       --text:#eef2ff;
       --muted:#b7c0ffcc;
       --gold:#f7d77a;
-      --ok:#2f8f7a;
       --danger:#7c3c4b;
       --shadow: 0 20px 60px rgba(0,0,0,.45);
       --radius: 26px;
@@ -208,16 +207,11 @@
       gap:10px;
     }
 
-    .bigBtn:active{
-      transform: translateY(1px);
-    }
-
     .bigBtn .paw{
       width:18px;
       height:18px;
       display:inline-grid;
       place-items:center;
-      filter: drop-shadow(0 0 10px rgba(247,215,122,.35));
     }
 
     .atmWrap{
@@ -292,56 +286,13 @@
       background: linear-gradient(180deg, rgba(47,143,122,.30), rgba(47,143,122,.14));
       border-radius:18px;
       cursor:pointer;
-      padding:16px 12px;
       display:flex;
       align-items:center;
       justify-content:center;
-      text-align:center;
-      gap:8px;
-      user-select:none;
-      box-shadow: 0 12px 35px rgba(0,0,0,.25);
-      color:#f3fff9;
-      font-weight:800;
-      font-size:19px;
-      text-shadow:0 0 10px rgba(47,143,122,.25);
-    }
-
-    .enterBtn:active{
-      transform: translateY(1px);
-    }
-
-    .receiveBtn{
-      width:100%;
-      min-height:88px;
-      border:1px solid rgba(247,215,122,.28);
-      background: linear-gradient(180deg, rgba(247,215,122,.18), rgba(247,215,122,.08));
-      border-radius:22px;
-      cursor:pointer;
-      padding:18px 14px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      gap:8px;
-      user-select:none;
-      box-shadow: 0 12px 35px rgba(0,0,0,.25);
-    }
-
-    .receiveBtn:active{
-      transform: translateY(1px);
-    }
-
-    .receiveBtn b{
-      display:block;
-      font-size:20px;
-      color:#fff9dc;
-      text-shadow:0 0 10px rgba(247,215,122,.35);
-    }
-
-    .receiveBtn span{
-      display:block;
-      font-size:13px;
-      color:#fff2b8;
+      font-size:28px;
+      font-weight:900;
+      color:#ffffff;
+      box-shadow:0 12px 35px rgba(0,0,0,.25);
     }
 
     .keypad{
@@ -362,10 +313,6 @@
       cursor:pointer;
       user-select:none;
       box-shadow: 0 12px 35px rgba(0,0,0,.25);
-    }
-
-    .key:active{
-      transform: translateY(1px);
     }
 
     .key.danger{
@@ -405,15 +352,6 @@
       gap:10px;
     }
 
-    .rewardTop b{
-      font-size:15px;
-    }
-
-    .rewardTop span{
-      font-size:12px;
-      color:var(--muted);
-    }
-
     .rewardArea{
       position:relative;
       height:360px;
@@ -440,10 +378,6 @@
       font-weight:800;
     }
 
-    .rewardControlBtn:active{
-      transform: translateY(1px);
-    }
-
     .sparkle{
       position:absolute;
       inset:0;
@@ -461,6 +395,53 @@
     @keyframes twinkle{
       from{opacity:.35; transform: translateY(0px)}
       to{opacity:.7; transform: translateY(-2px)}
+    }
+
+    .moneyRain{
+      position:absolute;
+      top:-40px;
+      font-size:34px;
+      pointer-events:none;
+      z-index:8;
+      animation: moneyFall 2.4s linear forwards;
+      filter: drop-shadow(0 8px 14px rgba(0,0,0,.28));
+    }
+
+    @keyframes moneyFall{
+      0%{transform: translateY(-20px) rotate(0deg); opacity:0;}
+      10%{opacity:1;}
+      100%{transform: translateY(420px) rotate(18deg); opacity:0;}
+    }
+
+    .mainRewardWrap{
+      position:absolute;
+      left:50%;
+      top:54%;
+      transform:translate(-50%, -50%);
+      width:min(78%, 320px);
+      z-index:20;
+      animation: rewardPop .5s ease-out forwards;
+      text-align:center;
+    }
+
+    .mainRewardImage{
+      width:100%;
+      display:block;
+      border-radius:24px;
+      box-shadow:0 20px 50px rgba(0,0,0,.35);
+    }
+
+    .mainRewardTitle{
+      margin-top:10px;
+      font-size:16px;
+      font-weight:800;
+      color:var(--text);
+      text-shadow:0 2px 8px rgba(0,0,0,.35);
+    }
+
+    @keyframes rewardPop{
+      0%{opacity:0; transform:translate(-50%, -44%) scale(.85);}
+      100%{opacity:1; transform:translate(-50%, -50%) scale(1);}
     }
 
     .modalBack{
@@ -521,82 +502,12 @@
     .gateMode .topbar{
       display:none;
     }
-
-    .moneyRain{
-      position:absolute;
-      top:-40px;
-      font-size:34px;
-      pointer-events:none;
-      z-index:8;
-      animation: moneyFall 2.4s linear forwards;
-      filter: drop-shadow(0 8px 14px rgba(0,0,0,.28));
-    }
-
-    @keyframes moneyFall{
-      0%{
-        transform: translateY(-20px) rotate(0deg);
-        opacity:0;
-      }
-      10%{
-        opacity:1;
-      }
-      100%{
-        transform: translateY(420px) rotate(18deg);
-        opacity:0;
-      }
-    }
-
-    .mainRewardWrap{
-      position:absolute;
-      left:50%;
-      top:54%;
-      transform:translate(-50%, -50%);
-      width:min(78%, 320px);
-      z-index:20;
-      animation: rewardPop .5s ease-out forwards;
-      text-align:center;
-    }
-
-    .mainRewardImage{
-      width:100%;
-      display:block;
-      border-radius:24px;
-      box-shadow:0 20px 50px rgba(0,0,0,.35);
-    }
-
-    .mainRewardTitle{
-      margin-top:10px;
-      font-size:16px;
-      font-weight:800;
-      color:var(--text);
-      text-shadow:0 2px 8px rgba(0,0,0,.35);
-    }
-
-    @keyframes rewardPop{
-      0%{
-        opacity:0;
-        transform:translate(-50%, -44%) scale(.85);
-      }
-      100%{
-        opacity:1;
-        transform:translate(-50%, -50%) scale(1);
-      }
-    }
-
-    @media (max-width: 360px){
-      .row{
-        grid-template-columns: 1fr 1fr;
-      }
-      .receiveBtn b{
-        font-size:17px;
-      }
-    }
   </style>
 </head>
 
 <body>
   <div class="app" id="app">
-    <div class="topbar" id="topbar">
+    <div class="topbar">
       <div class="brand">
         <div class="dot"></div>
         <div class="brandtext">
@@ -611,7 +522,7 @@
     </div>
 
     <div class="card">
-      <div class="hero" id="hero">
+      <div class="hero">
         <img id="heroImg" alt="宇宙銀行" />
         <div class="label" id="heroLabel">
           <b id="heroTitle">ようこそ、宇宙銀行へ</b>
@@ -635,41 +546,31 @@
         </div>
 
         <div class="row">
+          <div class="pinBox">
+            <div class="small">暗証番号（4桁）</div>
+            <div class="pin" id="pinView">----</div>
+          </div>
 
-  <div class="pinBox">
-    <div class="small">暗証番号（4桁）</div>
-    <div class="pin" id="pinView">----</div>
-  </div>
+          <button class="enterBtn" id="btnEnterReward">↩</button>
+        </div>
 
-  <button class="enterBtn" id="btnEnterReward">
-    ↩
-  </button>
-
-</div>
-
-
-<div class="keypad" id="keypad">
-
-<button class="key" data-k="1">1</button>
-<button class="key" data-k="2">2</button>
-<button class="key" data-k="3">3</button>
-
-<button class="key" data-k="4">4</button>
-<button class="key" data-k="5">5</button>
-<button class="key" data-k="6">6</button>
-
-<button class="key" data-k="7">7</button>
-<button class="key" data-k="8">8</button>
-<button class="key" data-k="9">9</button>
-
-<button class="key danger" data-k="clear">けす</button>
-<button class="key" data-k="0">0</button>
-
-</div>
+        <div class="keypad" id="keypad">
+          <button class="key" data-k="1">1</button>
+          <button class="key" data-k="2">2</button>
+          <button class="key" data-k="3">3</button>
+          <button class="key" data-k="4">4</button>
+          <button class="key" data-k="5">5</button>
+          <button class="key" data-k="6">6</button>
+          <button class="key" data-k="7">7</button>
+          <button class="key" data-k="8">8</button>
+          <button class="key" data-k="9">9</button>
+          <button class="key danger" data-k="clear">けす</button>
+          <button class="key" data-k="0">0</button>
+        </div>
 
         <div class="hintLine" id="hintLine">
           ・暗証番号は4桁<br>
-          ・4桁入力して Enter を押すと受け取り開始
+          ・4桁入力して ↩ を押すと受け取り開始
         </div>
       </div>
 
@@ -695,10 +596,7 @@
   <div class="modalBack" id="modalBack">
     <div class="modal">
       <h3>暗証番号ヒント</h3>
-      <p>
-        ヒント：しあわせの合図が並んでる数字🐾<br>
-        例：8888
-      </p>
+      <p>ヒント：しあわせの合図が並んでる数字🐾<br>例：8888</p>
       <div class="modalBtns">
         <button id="modalClose">とじる</button>
         <button class="gold" id="modalSet8888">8888 を入れる</button>
@@ -709,24 +607,12 @@
 <script>
   const IMG = {
     gate: "images/cosmic_bank_gate.png",
-    atm:  "images/cosmic_bank_atm.png",
+    atm: "images/cosmic_bank_atm.png",
     stage2Rewards: [
-      {
-        src: "images/chappy_sally_house.png",
-        title: "しあわせハウスが来たよ🏠"
-      },
-      {
-        src: "images/chappy_sally_car.png",
-        title: "しあわせカーで出発〜🚗"
-      },
-      {
-        src: "images/chappy_sally_gold_train.png",
-        title: "黄金トレインが到着〜🚂"
-      },
-      {
-        src: "images/chappy_sally_gold_cart.png",
-        title: "ゴールドトロッコが来たよ🛤️"
-      }
+      { src: "images/chappy_sally_house.png", title: "しあわせハウスが来たよ🏠" },
+      { src: "images/chappy_sally_car.png", title: "しあわせカーで出発〜🚗" },
+      { src: "images/chappy_sally_gold_train.png", title: "黄金トレインが到着〜🚂" },
+      { src: "images/chappy_sally_gold_cart.png", title: "ゴールドトロッコが来たよ🛤️" }
     ]
   };
 
@@ -744,7 +630,6 @@
   const pinView = document.getElementById("pinView");
   const pinDots = document.getElementById("pinDots");
   const keypad = document.getElementById("keypad");
-  const btnReceive = document.getElementById("btnReceive");
   const btnEnterReward = document.getElementById("btnEnterReward");
   const hintLine = document.getElementById("hintLine");
 
@@ -757,7 +642,6 @@
 
   const btnReset = document.getElementById("btnReset");
   const btnHint = document.getElementById("btnHint");
-
   const modalBack = document.getElementById("modalBack");
   const modalClose = document.getElementById("modalClose");
   const modalSet8888 = document.getElementById("modalSet8888");
@@ -816,9 +700,8 @@
       dots.push(i < pin.length ? "●" : "◯");
     }
     pinDots.textContent = dots.join(" ");
-    btnReceive.style.opacity = pin.length === 4 ? "1" : ".55";
     btnEnterReward.style.opacity = pin.length === 4 ? "1" : ".55";
-    hintLine.innerHTML = "・暗証番号は4桁<br>・4桁入力して Enter を押すと受け取り開始";
+    hintLine.innerHTML = "・暗証番号は4桁<br>・4桁入力して ↩ を押すと受け取り開始";
   }
 
   function openModal(){
@@ -879,8 +762,8 @@
       return;
     }
 
-    if(!VALID_PINS.includes(pin)){
-      hintLine.innerHTML = "・その暗証番号は違うみたい。ヒントを見てね。";
+        if(!VALID_PINS.includes(pin)){
+      hintLine.innerHTML = "・その暗証番号は違うみたい";
       return;
     }
 
@@ -908,7 +791,6 @@
     setMode("atm");
   });
 
-  btnReceive.addEventListener("click", startRewardFlow);
   btnEnterReward.addEventListener("click", startRewardFlow);
 
   keypad.addEventListener("click", (e) => {
@@ -919,10 +801,6 @@
     if(k === "clear"){
       pin = "";
       updatePinUI();
-      return;
-    }
-
-    if(k === "none"){
       return;
     }
 
