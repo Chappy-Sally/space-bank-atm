@@ -52,7 +52,7 @@
       padding:14px 14px;
       background: linear-gradient(180deg, #101833cc, #0a0f22cc);
       border:1px solid var(--line);
-      border-radius: 999px;
+      border-radius:999px;
       box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
     }
@@ -107,7 +107,7 @@
       background: linear-gradient(180deg, #182048cc, #0f1633cc);
       color:var(--text);
       padding:10px 12px;
-      border-radius: 999px;
+      border-radius:999px;
       font-size:13px;
       cursor:pointer;
       box-shadow: 0 10px 30px rgba(0,0,0,.25);
@@ -258,7 +258,7 @@
 
     .row{
       display:grid;
-      grid-template-columns:1fr;
+      grid-template-columns: 1fr 1fr;
       gap:12px;
     }
 
@@ -285,11 +285,36 @@
       font-weight:800;
     }
 
+    .enterBtn{
+      width:100%;
+      min-height:78px;
+      border:1px solid rgba(47,143,122,.45);
+      background: linear-gradient(180deg, rgba(47,143,122,.30), rgba(47,143,122,.14));
+      border-radius:18px;
+      cursor:pointer;
+      padding:16px 12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      gap:8px;
+      user-select:none;
+      box-shadow: 0 12px 35px rgba(0,0,0,.25);
+      color:#f3fff9;
+      font-weight:800;
+      font-size:19px;
+      text-shadow:0 0 10px rgba(47,143,122,.25);
+    }
+
+    .enterBtn:active{
+      transform: translateY(1px);
+    }
+
     .receiveBtn{
       width:100%;
       min-height:88px;
-      border:1px solid rgba(255,255,255,.14);
-      background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
+      border:1px solid rgba(247,215,122,.28);
+      background: linear-gradient(180deg, rgba(247,215,122,.18), rgba(247,215,122,.08));
       border-radius:22px;
       cursor:pointer;
       padding:18px 14px;
@@ -308,13 +333,15 @@
 
     .receiveBtn b{
       display:block;
-      font-size:19px;
+      font-size:20px;
+      color:#fff9dc;
+      text-shadow:0 0 10px rgba(247,215,122,.35);
     }
 
     .receiveBtn span{
       display:block;
       font-size:13px;
-      color:var(--muted);
+      color:#fff2b8;
     }
 
     .keypad{
@@ -417,26 +444,6 @@
       transform: translateY(1px);
     }
 
-    .item{
-      position:absolute;
-      left:50%;
-      top:70%;
-      transform: translate(-50%, -50%) scale(.9) rotate(0deg);
-      opacity:0;
-      will-change: transform, opacity;
-      pointer-events:none;
-      filter: drop-shadow(0 18px 22px rgba(0,0,0,.35));
-    }
-
-    .item img{
-      display:block;
-      width:100%;
-      height:100%;
-      object-fit:contain;
-      border-radius:18px;
-      background:transparent;
-    }
-
     .sparkle{
       position:absolute;
       inset:0;
@@ -452,14 +459,8 @@
     }
 
     @keyframes twinkle{
-      from{
-        opacity:.35;
-        transform: translateY(0px);
-      }
-      to{
-        opacity:.7;
-        transform: translateY(-2px);
-      }
+      from{opacity:.35; transform: translateY(0px)}
+      to{opacity:.7; transform: translateY(-2px)}
     }
 
     .modalBack{
@@ -583,7 +584,12 @@
     }
 
     @media (max-width: 360px){
-      .receiveBtn b{font-size:17px}
+      .row{
+        grid-template-columns: 1fr 1fr;
+      }
+      .receiveBtn b{
+        font-size:17px;
+      }
     }
   </style>
 </head>
@@ -624,42 +630,46 @@
 
       <div class="atmWrap" id="atmWrap">
         <div class="sectionTitle">
-          <div class="badge"><span class="miniDot"></span><span id="modeBadge">ATM</span></div>
+          <div class="badge"><span class="miniDot"></span><span>ATM</span></div>
           <div class="badge">PIN: <span id="pinDots">◯ ◯ ◯ ◯</span></div>
         </div>
 
         <div class="row">
-          <div class="pinBox">
-            <div class="small">暗証番号（4桁）</div>
-            <div class="pin" id="pinView">----</div>
-          </div>
 
-          <button class="receiveBtn" id="btnReceive" title="受け取ります（演出スタート）">
-            <div>
-              <b>受け取ります</b>
-              <span>ATMから</span>
-            </div>
-          </button>
-        </div>
+  <div class="pinBox">
+    <div class="small">暗証番号（4桁）</div>
+    <div class="pin" id="pinView">----</div>
+  </div>
 
-        <div class="keypad" id="keypad">
-          <button class="key" data-k="1">1</button>
-          <button class="key" data-k="2">2</button>
-          <button class="key" data-k="3">3</button>
-          <button class="key" data-k="4">4</button>
-          <button class="key" data-k="5">5</button>
-          <button class="key" data-k="6">6</button>
-          <button class="key" data-k="7">7</button>
-          <button class="key" data-k="8">8</button>
-          <button class="key" data-k="9">9</button>
-          <button class="key danger" data-k="clear">けす</button>
-          <button class="key" data-k="0">0</button>
-          <button class="key" data-k="back">⌫</button>
-        </div>
+  <button class="enterBtn" id="btnEnterReward">
+    ↩
+  </button>
+
+</div>
+
+
+<div class="keypad" id="keypad">
+
+<button class="key" data-k="1">1</button>
+<button class="key" data-k="2">2</button>
+<button class="key" data-k="3">3</button>
+
+<button class="key" data-k="4">4</button>
+<button class="key" data-k="5">5</button>
+<button class="key" data-k="6">6</button>
+
+<button class="key" data-k="7">7</button>
+<button class="key" data-k="8">8</button>
+<button class="key" data-k="9">9</button>
+
+<button class="key danger" data-k="clear">けす</button>
+<button class="key" data-k="0">0</button>
+
+</div>
 
         <div class="hintLine" id="hintLine">
           ・暗証番号は4桁<br>
-          ・4桁入力したら「受け取ります」で演出スタート
+          ・4桁入力して Enter を押すと受け取り開始
         </div>
       </div>
 
@@ -668,7 +678,7 @@
         <div class="rewardTop">
           <div>
             <b id="rewardTitle">REWARD</b><br>
-            <span id="rewardSub">しあわせ受け取り中だよ🐾</span>
+            <span id="rewardSub">受取り増す🐶🐾</span>
           </div>
           <button class="pill" id="btnBackATM">ATMへ戻る</button>
         </div>
@@ -687,7 +697,7 @@
       <h3>暗証番号ヒント</h3>
       <p>
         ヒント：しあわせの合図が並んでる数字🐾<br>
-        （例：8888 / 7777 など、あなたの宇宙銀行の暗証番号でOK）
+        例：8888
       </p>
       <div class="modalBtns">
         <button id="modalClose">とじる</button>
@@ -735,6 +745,7 @@
   const pinDots = document.getElementById("pinDots");
   const keypad = document.getElementById("keypad");
   const btnReceive = document.getElementById("btnReceive");
+  const btnEnterReward = document.getElementById("btnEnterReward");
   const hintLine = document.getElementById("hintLine");
 
   const rewardStage = document.getElementById("rewardStage");
@@ -804,10 +815,10 @@
     for(let i=0;i<4;i++){
       dots.push(i < pin.length ? "●" : "◯");
     }
-
- 　 pinDots.textContent = dots.join(" ");
+    pinDots.textContent = dots.join(" ");
     btnReceive.style.opacity = pin.length === 4 ? "1" : ".55";
-    hintLine.innerHTML = "・暗証番号は4桁<br>・4桁入力したら「受け取ります」で演出スタート";
+    btnEnterReward.style.opacity = pin.length === 4 ? "1" : ".55";
+    hintLine.innerHTML = "・暗証番号は4桁<br>・4桁入力して Enter を押すと受け取り開始";
   }
 
   function openModal(){
@@ -862,25 +873,7 @@
     rewardSub.textContent = "しあわせ受け取り成功だよ🐾";
   }
 
-  function playRewardSequence(){
-    setMode("reward");
-    clearRewardArea();
-
-    rewardTitle.textContent = "REWARD";
-    rewardSub.textContent = "💴🪙が降ってくるよ…";
-
-    moneyRainStage();
-
-    setTimeout(() => {
-      showMainRewardImage();
-    }, 1800);
-  }
-
-  btnEnter.addEventListener("click", () => {
-    setMode("atm");
-  });
-
-  btnReceive.addEventListener("click", () => {
+  function startRewardFlow(){
     if(pin.length !== 4){
       hintLine.innerHTML = "・暗証番号を4桁入力してね";
       return;
@@ -892,7 +885,31 @@
     }
 
     playRewardSequence();
+  }
+
+  function playRewardSequence(){
+    setMode("reward");
+    clearRewardArea();
+
+    rewardTitle.textContent = "REWARD";
+    rewardSub.textContent = "受取り増す🐶🐾";
+
+    setTimeout(() => {
+      moneyRainStage();
+    }, 700);
+
+    setTimeout(() => {
+      rewardSub.textContent = "しあわせが届くよ💴🪙";
+      showMainRewardImage();
+    }, 2400);
+  }
+
+  btnEnter.addEventListener("click", () => {
+    setMode("atm");
   });
+
+  btnReceive.addEventListener("click", startRewardFlow);
+  btnEnterReward.addEventListener("click", startRewardFlow);
 
   keypad.addEventListener("click", (e) => {
     const b = e.target.closest("button");
@@ -905,9 +922,7 @@
       return;
     }
 
-    if(k === "back"){
-      pin = pin.slice(0, -1);
-      updatePinUI();
+    if(k === "none"){
       return;
     }
 
