@@ -14,12 +14,13 @@
       --text:#eef2ff;
       --muted:#b7c0ffcc;
       --gold:#f7d77a;
+      --gold2:#c89b31;
       --danger:#7c3c4b;
-      --shadow: 0 20px 60px rgba(0,0,0,.45);
-      --radius: 26px;
+      --shadow:0 18px 50px rgba(0,0,0,.42);
+      --radius:24px;
     }
 
-    *{box-sizing:border-box}
+    *{ box-sizing:border-box; }
 
     body{
       margin:0;
@@ -33,27 +34,27 @@
       min-height:100vh;
       display:flex;
       justify-content:center;
-      padding:18px 14px 40px;
+      padding:10px 10px 18px;
     }
 
     .app{
       width:min(430px, 100%);
       display:flex;
       flex-direction:column;
-      gap:14px;
+      gap:10px;
     }
 
     .topbar{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:10px;
-      padding:14px 14px;
+      gap:8px;
+      padding:11px 12px;
       background: linear-gradient(180deg, #101833cc, #0a0f22cc);
       border:1px solid var(--line);
       border-radius:999px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(10px);
     }
 
     .brand{
@@ -67,8 +68,8 @@
       width:10px;
       height:10px;
       border-radius:50%;
-      background: radial-gradient(circle at 35% 35%, #fff 0%, var(--gold) 35%, #b98b2a 100%);
-      box-shadow: 0 0 18px rgba(247,215,122,.6);
+      background:radial-gradient(circle at 35% 35%, #fff 0%, var(--gold) 35%, #b98b2a 100%);
+      box-shadow:0 0 18px rgba(247,215,122,.6);
       flex:0 0 auto;
     }
 
@@ -80,7 +81,7 @@
     }
 
     .brandtext b{
-      font-size:15px;
+      font-size:14px;
       letter-spacing:.02em;
       white-space:nowrap;
       overflow:hidden;
@@ -88,7 +89,7 @@
     }
 
     .brandtext span{
-      font-size:12px;
+      font-size:11px;
       color:var(--muted);
       white-space:nowrap;
       overflow:hidden;
@@ -97,46 +98,48 @@
 
     .top-actions{
       display:flex;
-      gap:10px;
       align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
 
     .pill{
       border:1px solid var(--line);
-      background: linear-gradient(180deg, #182048cc, #0f1633cc);
+      background:linear-gradient(180deg, #182048cc, #0f1633cc);
       color:var(--text);
-      padding:10px 12px;
+      padding:9px 10px;
       border-radius:999px;
-      font-size:13px;
+      font-size:12px;
       cursor:pointer;
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
-      backdrop-filter: blur(10px);
+      box-shadow:0 10px 28px rgba(0,0,0,.22);
+      backdrop-filter:blur(10px);
       user-select:none;
       white-space:nowrap;
     }
 
     .pill.gold{
-      border-color: rgba(247,215,122,.35);
-      box-shadow: 0 10px 35px rgba(247,215,122,.15);
+      border-color:rgba(247,215,122,.38);
+      box-shadow:0 10px 32px rgba(247,215,122,.12);
     }
 
     .card{
-      background: linear-gradient(180deg, var(--card), var(--card2));
+      background:linear-gradient(180deg, var(--card), var(--card2));
       border:1px solid var(--line);
-      border-radius: var(--radius);
-      padding:14px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
+      border-radius:var(--radius);
+      padding:12px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(10px);
       overflow:hidden;
     }
 
     .hero{
       position:relative;
-      border-radius:22px;
+      border-radius:20px;
       overflow:hidden;
       border:1px solid var(--line);
       background:#0b1024;
-      aspect-ratio:16 / 10;
+      aspect-ratio:16 / 8.8;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -147,32 +150,33 @@
       height:100%;
       object-fit:cover;
       display:block;
-      transform: scale(1.02);
-      filter: saturate(1.05) contrast(1.05);
+      transform:scale(1.02);
+      filter:saturate(1.05) contrast(1.05);
     }
 
     .hero .label{
       position:absolute;
-      left:14px;
-      top:14px;
-      padding:12px 14px;
-      border-radius:16px;
-      background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.25));
+      left:10px;
+      top:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      background:linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.25));
       border:1px solid rgba(255,255,255,.12);
-      backdrop-filter: blur(8px);
-      max-width: calc(100% - 28px);
-      box-shadow: 0 18px 55px rgba(0,0,0,.35);
+      backdrop-filter:blur(8px);
+      max-width:calc(100% - 20px);
+      box-shadow:0 18px 55px rgba(0,0,0,.35);
     }
 
     .label b{
       display:block;
-      font-size:16px;
+      font-size:15px;
       margin-bottom:4px;
     }
 
     .label span{
-      font-size:12px;
+      font-size:11px;
       color:rgba(255,255,255,.82);
+      line-height:1.45;
     }
 
     .hero .mascot-peek{
@@ -180,27 +184,27 @@
       left:0;
       right:0;
       bottom:0;
-      height:34%;
+      height:32%;
       pointer-events:none;
-      background: linear-gradient(180deg, transparent, rgba(0,0,0,.26) 55%, rgba(0,0,0,.42));
+      background:linear-gradient(180deg, transparent, rgba(0,0,0,.26) 55%, rgba(0,0,0,.42));
     }
 
     .gateAction{
-      margin-top:12px;
+      margin-top:10px;
       display:flex;
       justify-content:center;
     }
 
     .bigBtn{
       width:100%;
-      padding:16px 14px;
-      border-radius:18px;
+      padding:14px 12px;
+      border-radius:16px;
       border:1px solid rgba(247,215,122,.28);
-      background: linear-gradient(180deg, rgba(247,215,122,.18), rgba(247,215,122,.08));
+      background:linear-gradient(180deg, rgba(247,215,122,.18), rgba(247,215,122,.08));
       color:var(--text);
-      font-size:16px;
+      font-size:15px;
       cursor:pointer;
-      box-shadow: 0 18px 55px rgba(0,0,0,.35);
+      box-shadow:0 18px 55px rgba(0,0,0,.35);
       display:flex;
       align-items:center;
       justify-content:center;
@@ -216,8 +220,8 @@
 
     .atmWrap{
       display:none;
-      margin-top:12px;
-      gap:12px;
+      margin-top:10px;
+      gap:10px;
     }
 
     .sectionTitle{
@@ -225,16 +229,16 @@
       align-items:center;
       justify-content:space-between;
       gap:10px;
-      margin-top:12px;
-      margin-bottom:8px;
+      margin-top:8px;
+      margin-bottom:6px;
     }
 
     .badge{
       font-size:12px;
-      color:rgba(255,255,255,.85);
+      color:rgba(255,255,255,.86);
       border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      padding:8px 10px;
+      background:rgba(255,255,255,.06);
+      padding:7px 10px;
       border-radius:999px;
       display:inline-flex;
       gap:8px;
@@ -246,26 +250,26 @@
       width:9px;
       height:9px;
       border-radius:50%;
-      background: rgba(247,215,122,.95);
-      box-shadow: 0 0 18px rgba(247,215,122,.45);
+      background:rgba(247,215,122,.96);
+      box-shadow:0 0 18px rgba(247,215,122,.45);
     }
 
     .row{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
     }
 
     .pinBox{
       border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      border-radius:18px;
-      padding:16px;
-      min-height:78px;
+      background:rgba(255,255,255,.06);
+      border-radius:16px;
+      padding:14px;
+      min-height:72px;
       display:flex;
       flex-direction:column;
       justify-content:center;
-      gap:6px;
+      gap:4px;
     }
 
     .pinBox .small{
@@ -274,65 +278,65 @@
     }
 
     .pinBox .pin{
-      font-size:22px;
-      letter-spacing:.22em;
+      font-size:20px;
+      letter-spacing:.18em;
       font-weight:800;
     }
 
     .enterBtn{
       width:100%;
-      min-height:78px;
+      min-height:72px;
       border:1px solid rgba(47,143,122,.45);
-      background: linear-gradient(180deg, rgba(47,143,122,.30), rgba(47,143,122,.14));
-      border-radius:18px;
+      background:linear-gradient(180deg, rgba(47,143,122,.30), rgba(47,143,122,.14));
+      border-radius:16px;
       cursor:pointer;
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:28px;
+      font-size:26px;
       font-weight:900;
-      color:#ffffff;
+      color:#fff;
       box-shadow:0 12px 35px rgba(0,0,0,.25);
     }
 
     .keypad{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
+      grid-template-columns:repeat(3, 1fr);
+      gap:10px;
       margin-top:8px;
     }
 
     .key{
-      padding:18px 0;
-      border-radius:18px;
+      padding:16px 0;
+      border-radius:16px;
       border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
+      background:rgba(255,255,255,.06);
       color:var(--text);
-      font-size:20px;
+      font-size:18px;
       font-weight:800;
       cursor:pointer;
       user-select:none;
-      box-shadow: 0 12px 35px rgba(0,0,0,.25);
+      box-shadow:0 12px 35px rgba(0,0,0,.25);
     }
 
     .key.danger{
-      background: linear-gradient(180deg, rgba(124,60,75,.35), rgba(124,60,75,.18));
-      border-color: rgba(124,60,75,.5);
-      font-size:18px;
+      background:linear-gradient(180deg, rgba(124,60,75,.35), rgba(124,60,75,.18));
+      border-color:rgba(124,60,75,.5);
+      font-size:17px;
     }
 
     .hintLine{
-      margin-top:10px;
-      font-size:12px;
+      margin-top:8px;
+      font-size:11px;
       color:var(--muted);
-      line-height:1.6;
+      line-height:1.5;
     }
 
     .rewardStage{
       display:none;
-      margin-top:14px;
+      margin-top:10px;
       position:relative;
-      border-radius:22px;
+      border-radius:20px;
       overflow:hidden;
       border:1px solid var(--line);
       background:
@@ -340,42 +344,56 @@
         radial-gradient(700px 500px at 20% 0%, rgba(160,120,255,.18), transparent 60%),
         radial-gradient(900px 600px at 80% 0%, rgba(80,200,255,.14), transparent 65%),
         linear-gradient(180deg, rgba(7,10,25,.95), rgba(10,16,42,.95));
-      min-height:340px;
-      box-shadow: var(--shadow);
+      box-shadow:var(--shadow);
     }
 
     .rewardTop{
-      padding:14px;
+      padding:12px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:10px;
+      gap:8px;
+    }
+
+    .rewardTitleWrap b{
+      font-size:15px;
+    }
+
+    .rewardTitleWrap span{
+      font-size:12px;
+      color:var(--muted);
     }
 
     .rewardArea{
       position:relative;
-      height:360px;
+      height:280px;
       overflow:hidden;
       border-top:1px solid rgba(255,255,255,.08);
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
 
     .rewardControls{
-      padding:14px;
-      display:flex;
+      padding:12px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
       gap:10px;
-      flex-direction:column;
     }
 
     .rewardControlBtn{
       width:100%;
-      padding:14px 12px;
-      border-radius:18px;
+      padding:13px 12px;
+      border-radius:16px;
       border:1px solid rgba(255,255,255,.14);
-      background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
+      background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
       color:var(--text);
       cursor:pointer;
-      font-size:15px;
+      font-size:14px;
       font-weight:800;
+    }
+
+    .rewardControlBtn.gold{
+      border-color:rgba(247,215,122,.35);
+      background:linear-gradient(180deg, rgba(247,215,122,.16), rgba(247,215,122,.08));
     }
 
     .sparkle{
@@ -389,79 +407,105 @@
         radial-gradient(1.8px 1.8px at 85% 55%, rgba(255,255,255,.7) 40%, transparent 41%),
         radial-gradient(1.6px 1.6px at 30% 80%, rgba(255,255,255,.75) 40%, transparent 41%);
       opacity:.55;
-      animation: twinkle 2.6s infinite ease-in-out alternate;
+      animation:twinkle 2.6s infinite ease-in-out alternate;
     }
 
     @keyframes twinkle{
-      from{opacity:.35; transform: translateY(0px)}
-      to{opacity:.7; transform: translateY(-2px)}
+      from{ opacity:.35; transform:translateY(0px); }
+      to{ opacity:.72; transform:translateY(-2px); }
     }
 
     .moneyRain{
       position:absolute;
       top:-40px;
-      font-size:34px;
+      font-size:30px;
       pointer-events:none;
       z-index:8;
-      animation: moneyFall 2.4s linear forwards;
-      filter: drop-shadow(0 8px 14px rgba(0,0,0,.28));
+      animation:moneyFall 2.2s linear forwards;
+      filter:drop-shadow(0 8px 14px rgba(0,0,0,.28));
     }
 
     @keyframes moneyFall{
-      0%{transform: translateY(-20px) rotate(0deg); opacity:0;}
-      10%{opacity:1;}
-      100%{transform: translateY(420px) rotate(18deg); opacity:0;}
+      0%{ transform:translateY(-20px) rotate(0deg); opacity:0; }
+      10%{ opacity:1; }
+      100%{ transform:translateY(360px) rotate(18deg); opacity:0; }
     }
 
     .mainRewardWrap{
       position:absolute;
       left:50%;
-      top:54%;
+      top:52%;
       transform:translate(-50%, -50%);
-      width:min(78%, 320px);
+      width:min(72%, 260px);
       z-index:20;
-      animation: rewardPop .5s ease-out forwards;
+      animation:rewardPop .45s ease-out forwards;
       text-align:center;
     }
 
     .mainRewardImage{
       width:100%;
       display:block;
-      border-radius:24px;
+      border-radius:20px;
       box-shadow:0 20px 50px rgba(0,0,0,.35);
     }
 
     .mainRewardTitle{
-      margin-top:10px;
-      font-size:16px;
+      margin-top:8px;
+      font-size:15px;
       font-weight:800;
       color:var(--text);
+      text-shadow:0 2px 8px rgba(0,0,0,.35);
+      line-height:1.45;
+    }
+
+    .mainRewardValue{
+      margin-top:6px;
+      font-size:13px;
+      color:var(--gold);
+      font-weight:800;
       text-shadow:0 2px 8px rgba(0,0,0,.35);
     }
 
     @keyframes rewardPop{
-      0%{opacity:0; transform:translate(-50%, -44%) scale(.85);}
-      100%{opacity:1; transform:translate(-50%, -50%) scale(1);}
+      0%{ opacity:0; transform:translate(-50%, -44%) scale(.88); }
+      100%{ opacity:1; transform:translate(-50%, -50%) scale(1); }
+    }
+
+    .toast{
+      position:absolute;
+      left:50%;
+      bottom:14px;
+      transform:translateX(-50%);
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:12px;
+      background:rgba(0,0,0,.45);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter:blur(8px);
+      white-space:nowrap;
+      z-index:30;
     }
 
     .modalBack{
       position:fixed;
       inset:0;
-      background: rgba(0,0,0,.55);
+      background:rgba(0,0,0,.55);
       display:none;
       align-items:center;
       justify-content:center;
-      padding:18px;
+      padding:16px;
       z-index:9998;
     }
 
     .modal{
       width:min(420px, 100%);
-      background: linear-gradient(180deg, rgba(15,23,48,.95), rgba(10,14,30,.95));
+      background:linear-gradient(180deg, rgba(15,23,48,.96), rgba(10,14,30,.96));
       border:1px solid rgba(255,255,255,.14);
       border-radius:22px;
-      box-shadow: var(--shadow);
+      box-shadow:var(--shadow);
       padding:14px;
+      max-height:88vh;
+      overflow:auto;
     }
 
     .modal h3{
@@ -480,31 +524,149 @@
       display:flex;
       gap:10px;
       padding:6px;
+      flex-wrap:wrap;
     }
 
     .modal .modalBtns button{
       flex:1;
-      border:none;
+      min-width:120px;
       cursor:pointer;
       border-radius:16px;
       padding:12px 10px;
       font-weight:800;
       color:var(--text);
       border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.08);
+      background:rgba(255,255,255,.08);
     }
 
     .modal .modalBtns button.gold{
-      border-color: rgba(247,215,122,.35);
-      background: rgba(247,215,122,.12);
+      border-color:rgba(247,215,122,.35);
+      background:rgba(247,215,122,.12);
+    }
+
+    .passbookCard{
+      margin:8px 6px 12px;
+      border-radius:20px;
+      border:1px solid rgba(247,215,122,.25);
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.25), transparent 18%),
+        linear-gradient(180deg, #f8e6a0, #e1c457);
+      color:#5f4315;
+      box-shadow:0 18px 40px rgba(0,0,0,.28);
+    }
+
+    .passbookHead{
+      padding:16px 16px 10px;
+      border-bottom:1px solid rgba(95,67,21,.18);
+      font-weight:900;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:flex-start;
+    }
+
+    .passbookHead .left{
+      font-size:16px;
+      line-height:1.35;
+    }
+
+    .passbookHead .right{
+      text-align:right;
+      font-size:12px;
+      line-height:1.5;
+    }
+
+    .passbookBody{
+      padding:16px;
+      background:rgba(255,255,255,.38);
+    }
+
+    .passbookBalanceLabel{
+      font-size:13px;
+      margin-bottom:8px;
+      font-weight:700;
+    }
+
+    .passbookBalance{
+      font-size:26px;
+      font-weight:900;
+      letter-spacing:.02em;
+      line-height:1.3;
+      word-break:break-all;
+    }
+
+    .passbookSub{
+      margin-top:8px;
+      font-size:12px;
+      line-height:1.6;
+      color:#7a5a1f;
+    }
+
+    .history{
+      margin:10px 6px 0;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.12);
+      overflow:hidden;
+      background:rgba(255,255,255,.04);
+    }
+
+    .history .head{
+      padding:12px 14px;
+      font-size:13px;
+      font-weight:800;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .historyList{
+      padding:8px 0;
+    }
+
+    .historyItem{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      padding:10px 14px;
+      font-size:12px;
+      border-top:1px solid rgba(255,255,255,.05);
+    }
+
+    .historyItem:first-child{
+      border-top:none;
+    }
+
+    .historyItem .name{
+      color:#fff;
+      flex:1;
+      min-width:0;
+      word-break:break-word;
+    }
+
+    .historyItem .val{
+      color:var(--gold);
+      font-weight:900;
+      white-space:nowrap;
+    }
+
+    .emptyState{
+      padding:14px;
+      font-size:12px;
+      color:var(--muted);
     }
 
     .gateMode .topbar{
       display:none;
     }
+
+    @media (max-width:430px){
+      .rewardArea{ height:260px; }
+      .mainRewardWrap{ width:min(70%, 240px); }
+      .rewardControls{ grid-template-columns:1fr; }
+      .top-actions{ gap:6px; }
+      .pill{ font-size:11px; padding:8px 9px; }
+    }
   </style>
 </head>
-
 <body>
   <div class="app" id="app">
     <div class="topbar">
@@ -515,7 +677,9 @@
           <span>チャッピー＆サリー</span>
         </div>
       </div>
+
       <div class="top-actions">
+        <button class="pill gold" id="btnPassbookTop">通帳を見る</button>
         <button class="pill" id="btnReset">最初から</button>
         <button class="pill gold" id="btnHint">暗証番号ヒント</button>
       </div>
@@ -551,7 +715,7 @@
             <div class="pin" id="pinView">----</div>
           </div>
 
-          <button class="enterBtn" id="btnEnterReward">↩</button>
+          <button class="enterBtn" id="btnEnterReward" aria-label="受け取り開始">↩</button>
         </div>
 
         <div class="keypad" id="keypad">
@@ -576,8 +740,9 @@
 
       <div class="rewardStage" id="rewardStage">
         <div class="sparkle"></div>
+
         <div class="rewardTop">
-          <div>
+          <div class="rewardTitleWrap">
             <b id="rewardTitle">REWARD</b><br>
             <span id="rewardSub">受取り増す🐶🐾</span>
           </div>
@@ -587,6 +752,7 @@
         <div class="rewardArea" id="rewardArea"></div>
 
         <div class="rewardControls">
+          <button class="rewardControlBtn gold" id="btnPassbookReward">通帳を見に行く</button>
           <button class="rewardControlBtn" id="btnRewardAgain">もう一回受け取る</button>
         </div>
       </div>
@@ -604,244 +770,465 @@
     </div>
   </div>
 
-<script>
-  const IMG = {
-    gate: "images/cosmic_bank_gate.png",
-    atm: "images/cosmic_bank_atm.png",
-    stage2Rewards: [
-      { src: "images/chappy_sally_house.png", title: "しあわせハウスが来たよ🏠" },
-      { src: "images/chappy_sally_car.png", title: "しあわせカーで出発〜🚗" },
-      { src: "images/chappy_sally_gold_train.png", title: "黄金トレインが到着〜🚂" },
-      { src: "images/chappy_sally_gold_cart.png", title: "ゴールドトロッコが来たよ🛤️" }
-    ]
-  };
+  <div class="modalBack" id="passbookBack">
+    <div class="modal">
+      <h3>宇宙銀行 通帳</h3>
 
-  const VALID_PINS = ["8888"];
+      <div class="passbookCard">
+        <div class="passbookHead">
+          <div class="left">
+            宇宙銀行<br>
+            スーパーミラクル口座 通帳
+          </div>
+          <div class="right">
+            支店番号 358<br>
+            本店
+          </div>
+        </div>
 
-  const app = document.getElementById("app");
-  const heroImg = document.getElementById("heroImg");
-  const heroLabel = document.getElementById("heroLabel");
-  const heroTitle = document.getElementById("heroTitle");
-  const heroSub = document.getElementById("heroSub");
-  const gateAction = document.getElementById("gateAction");
-  const btnEnter = document.getElementById("btnEnter");
+        <div class="passbookBody">
+          <div class="passbookBalanceLabel">あなたの残高</div>
+          <div class="passbookBalance" id="passbookBalance">¥0</div>
+          <div class="passbookSub">
+            受け取った金額はここに蓄積されるよ🐾<br>
+            同じスマホ・同じブラウザなら残高は残りやすいよ✨
+          </div>
+        </div>
+      </div>
 
-  const atmWrap = document.getElementById("atmWrap");
-  const pinView = document.getElementById("pinView");
-  const pinDots = document.getElementById("pinDots");
-  const keypad = document.getElementById("keypad");
-  const btnEnterReward = document.getElementById("btnEnterReward");
-  const hintLine = document.getElementById("hintLine");
+      <div class="history">
+        <div class="head">最近の受け取り履歴</div>
+        <div class="historyList" id="historyList"></div>
+      </div>
 
-  const rewardStage = document.getElementById("rewardStage");
-  const rewardArea = document.getElementById("rewardArea");
-  const rewardTitle = document.getElementById("rewardTitle");
-  const rewardSub = document.getElementById("rewardSub");
-  const btnRewardAgain = document.getElementById("btnRewardAgain");
-  const btnBackATM = document.getElementById("btnBackATM");
+      <div class="modalBtns">
+        <button id="passbookClose">とじる</button>
+        <button class="gold" id="btnCopyBalance">残高をチェック</button>
+      </div>
+    </div>
+  </div>
 
-  const btnReset = document.getElementById("btnReset");
-  const btnHint = document.getElementById("btnHint");
-  const modalBack = document.getElementById("modalBack");
-  const modalClose = document.getElementById("modalClose");
-  const modalSet8888 = document.getElementById("modalSet8888");
+  <script>
+    const IMG = {
+      gate: "images/cosmic_bank_gate.png",
+      atm: "images/cosmic_bank_atm.png",
 
-  let mode = "gate";
-  let pin = "";
+      moneyRewards: [
+        { src: "images/cosmic_reward_10000yen.png", title: "1万円受け取り増した〜💴", value: 10000 },
+        { src: "images/cosmic_reward_2million.png", title: "200万円受け取り増した〜💰", value: 2000000 },
+        { src: "images/cosmic_reward_100million.png", title: "1億円受け取り増した〜✨", value: 100000000 },
+        { src: "images/cosmic_reward_500million.png", title: "5億円受け取り増した〜🌈", value: 500000000 },
+        { src: "images/cosmic_infinite_reward.png", title: "∞受け取り増した〜♾️", value: 888800000000 },
+        { src: "images/cosmic_happiness_coin.png", title: "しあわせコイン受け取り増した〜🪙", value: 5000000 }
+      ],
 
-  function cacheBust(path){
-    return path + "?v=" + Date.now();
-  }
+      bonusRewards: [
+        { src: "images/chappy_sally_car.png", title: "しあわせカーで出発〜🚗", value: 10000000 },
+        { src: "images/chappy_sally_house.png", title: "しあわせハウスが来たよ🏠", value: 100000000 },
+        { src: "images/chappy_sally_gold_train.png", title: "黄金トレインが到着〜🚂", value: 5000000 },
+        { src: "images/chappy_sally_gold_cart.png", title: "ゴールドトロッコが来たよ🛤️", value: 5000000 },
+        { src: "images/cosmic_abundance_boost.png", title: "豊かさブースト中💥", value: 5000000 },
+        { src: "images/cosmic_atm_with_chappy.png", title: "チャッピーがATM応援中🐶", value: 5000000 },
+        { src: "images/cosmic_bank_gate.png", title: "光のゲートが開いてるよ🚪", value: 5000000 },
+        { src: "images/cosmic_bank_office.png", title: "宇宙銀行オフィスにご招待💼", value: 5000000 },
+        { src: "images/cosmic_devil_dog.png", title: "今日の厄祓い完了🌈", value: 5000000 },
+        { src: "images/cosmic_galaxy_merry_go_round.png", title: "しあわせ銀河メリーゴーランド🎠", value: 5000000 },
+        { src: "images/cosmic_golden_fountain.png", title: "黄金の泉がわいてるよ⛲", value: 5000000 },
+        { src: "images/cosmic_golden_gift.png", title: "宇宙ギフトが届いたよ🎁", value: 5000000 },
+        { src: "images/cosmic_golden_throne.png", title: "黄金の玉座にご案内〜👑", value: 5000000 },
+        { src: "images/cosmic_light_gate.png", title: "光のゲートが開いてるよ✨", value: 5000000 },
+        { src: "images/cosmic_magic_spring.png", title: "ミラクルの泉が出てきたよ💫", value: 5000000 },
+        { src: "images/cosmic_magic_spring_rest.png", title: "ひと休みも豊かさのうちだよ🌙", value: 5000000 },
+        { src: "images/cosmic_ocean_wave_friends.png", title: "しあわせの波に乗ってるよ🌊", value: 5000000 },
+        { src: "images/cosmic_rainbow_roller_coaster.png", title: "虹のコースターで加速中〜🌈", value: 5000000 }
+      ]
+    };
 
-  function setHero(src, title, sub){
-    heroImg.src = cacheBust(src);
-    heroTitle.textContent = title;
-    heroSub.textContent = sub;
-  }
+    const VALID_PINS = ["8888"];
+    const BALANCE_KEY = "spaceBankBalance_v1";
+    const HISTORY_KEY = "spaceBankHistory_v1";
 
-  function setMode(next){
-    mode = next;
+    const app = document.getElementById("app");
+    const heroImg = document.getElementById("heroImg");
+    const heroLabel = document.getElementById("heroLabel");
+    const heroTitle = document.getElementById("heroTitle");
+    const heroSub = document.getElementById("heroSub");
+    const gateAction = document.getElementById("gateAction");
+    const btnEnter = document.getElementById("btnEnter");
 
-    if(mode === "gate"){
-      app.classList.add("gateMode");
-      heroLabel.style.display = "none";
-      setHero(IMG.gate, "", "");
-      gateAction.style.display = "flex";
-      atmWrap.style.display = "none";
-      rewardStage.style.display = "none";
-      pin = "";
+    const atmWrap = document.getElementById("atmWrap");
+    const pinView = document.getElementById("pinView");
+    const pinDots = document.getElementById("pinDots");
+    const keypad = document.getElementById("keypad");
+    const btnEnterReward = document.getElementById("btnEnterReward");
+    const hintLine = document.getElementById("hintLine");
+
+    const rewardStage = document.getElementById("rewardStage");
+    const rewardArea = document.getElementById("rewardArea");
+    const rewardTitle = document.getElementById("rewardTitle");
+    const rewardSub = document.getElementById("rewardSub");
+    const btnRewardAgain = document.getElementById("btnRewardAgain");
+    const btnBackATM = document.getElementById("btnBackATM");
+
+    const btnReset = document.getElementById("btnReset");
+    const btnHint = document.getElementById("btnHint");
+    const btnPassbookTop = document.getElementById("btnPassbookTop");
+    const btnPassbookReward = document.getElementById("btnPassbookReward");
+
+    const modalBack = document.getElementById("modalBack");
+    const modalClose = document.getElementById("modalClose");
+    const modalSet8888 = document.getElementById("modalSet8888");
+
+    const passbookBack = document.getElementById("passbookBack");
+    const passbookClose = document.getElementById("passbookClose");
+    const passbookBalance = document.getElementById("passbookBalance");
+    const historyList = document.getElementById("historyList");
+    const btnCopyBalance = document.getElementById("btnCopyBalance");
+    let mode = "gate";
+    let pin = "";
+    let rewardTimers = [];
+
+    function cacheBust(path){
+      return path + "?v=" + Date.now();
+    }
+
+    function formatYen(num){
+      return "¥" + Number(num || 0).toLocaleString("ja-JP");
+    }
+
+    function getBalance(){
+      return Number(localStorage.getItem(BALANCE_KEY) || 0);
+    }
+
+    function setBalance(num){
+      localStorage.setItem(BALANCE_KEY, String(num));
+    }
+
+    function getHistory(){
+      try{
+        return JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]");
+      }catch(err){
+        return [];
+      }
+    }
+
+    function setHistory(arr){
+      localStorage.setItem(HISTORY_KEY, JSON.stringify(arr));
+    }
+
+    function addHistory(item){
+      const list = getHistory();
+      list.unshift(item);
+      setHistory(list.slice(0, 20));
+    }
+
+    function addToBalance(value, title){
+      const current = getBalance();
+      const next = current + value;
+      setBalance(next);
+
+      addHistory({
+        title,
+        value,
+        date: new Date().toLocaleString("ja-JP")
+      });
+
+      return next;
+    }
+
+    function renderPassbook(){
+      passbookBalance.textContent = formatYen(getBalance());
+
+      const list = getHistory();
+      historyList.innerHTML = "";
+
+      if(!list.length){
+        historyList.innerHTML = '<div class="emptyState">まだ受け取り履歴はないよ🐾</div>';
+        return;
+      }
+
+      list.forEach(item => {
+        const row = document.createElement("div");
+        row.className = "historyItem";
+
+        const name = document.createElement("div");
+        name.className = "name";
+        name.innerHTML = `${item.title}<br><span style="color:var(--muted);font-size:11px;">${item.date}</span>`;
+
+        const val = document.createElement("div");
+        val.className = "val";
+        val.textContent = "+" + formatYen(item.value).replace("¥", "¥");
+
+        row.appendChild(name);
+        row.appendChild(val);
+        historyList.appendChild(row);
+      });
+    }
+
+    function openPassbook(){
+      renderPassbook();
+      passbookBack.style.display = "flex";
+    }
+
+    function closePassbook(){
+      passbookBack.style.display = "none";
+    }
+
+    function setHero(src, title, sub){
+      heroImg.src = cacheBust(src);
+      heroTitle.textContent = title;
+      heroSub.textContent = sub;
+    }
+
+    function clearTimers(){
+      rewardTimers.forEach(t => clearTimeout(t));
+      rewardTimers = [];
+    }
+
+    function setMode(next){
+      clearTimers();
+      mode = next;
+
+      if(mode === "gate"){
+        app.classList.add("gateMode");
+        heroLabel.style.display = "none";
+        setHero(IMG.gate, "", "");
+        gateAction.style.display = "flex";
+        atmWrap.style.display = "none";
+        rewardStage.style.display = "none";
+        pin = "";
+        updatePinUI();
+      }
+
+      if(mode === "atm"){
+        app.classList.remove("gateMode");
+        heroLabel.style.display = "block";
+        setHero(IMG.atm, "宇宙銀行ATM", "暗証番号を入力してね。");
+        gateAction.style.display = "none";
+        atmWrap.style.display = "block";
+        rewardStage.style.display = "none";
+        updatePinUI();
+      }
+
+      if(mode === "reward"){
+        app.classList.remove("gateMode");
+        heroLabel.style.display = "none";
+        setHero(IMG.gate, "", "");
+        gateAction.style.display = "none";
+        atmWrap.style.display = "none";
+        rewardStage.style.display = "block";
+      }
+    }
+    
+    function updatePinUI(){
+      pinView.textContent = (pin + "----").slice(0, 4);
+      const dots = [];
+      for(let i = 0; i < 4; i++){
+        dots.push(i < pin.length ? "●" : "◯");
+      }
+      pinDots.textContent = dots.join(" ");
+      btnEnterReward.style.opacity = pin.length === 4 ? "1" : ".55";
+      hintLine.innerHTML = "・暗証番号は4桁<br>・4桁入力して ↩ を押すと受け取り開始";
+    }
+
+    function openHint(){
+      modalBack.style.display = "flex";
+    }
+
+    function closeHint(){
+      modalBack.style.display = "none";
+    }
+
+    function clearRewardArea(){
+      rewardArea.innerHTML = "";
+      const sparkle = document.createElement("div");
+      sparkle.className = "sparkle";
+      rewardArea.appendChild(sparkle);
+    }
+
+    function moneyRainStage(){
+      const icons = ["💴", "🪙", "💴", "🪙", "💰"];
+      for(let i = 0; i < 24; i++){
+        const timer = setTimeout(() => {
+          const el = document.createElement("div");
+          el.className = "moneyRain";
+          el.textContent = icons[Math.floor(Math.random() * icons.length)];
+          el.style.left = Math.random() * 90 + "%";
+          rewardArea.appendChild(el);
+          setTimeout(() => el.remove(), 2400);
+        }, i * 75);
+        rewardTimers.push(timer);
+      }
+    }
+
+    function showRewardImage(reward){
+      rewardArea.innerHTML = "";
+
+      const sparkle = document.createElement("div");
+      sparkle.className = "sparkle";
+      rewardArea.appendChild(sparkle);
+
+      const wrap = document.createElement("div");
+      wrap.className = "mainRewardWrap";
+
+      const img = document.createElement("img");
+      img.src = cacheBust(reward.src);
+      img.alt = reward.title;
+      img.className = "mainRewardImage";
+
+      const title = document.createElement("div");
+      title.className = "mainRewardTitle";
+      title.textContent = reward.title;
+
+      const value = document.createElement("div");
+      value.className = "mainRewardValue";
+      value.textContent = "＋" + formatYen(reward.value);
+
+      wrap.appendChild(img);
+      wrap.appendChild(title);
+      wrap.appendChild(value);
+      rewardArea.appendChild(wrap);
+    }
+
+    function showToast(text){
+      const toast = document.createElement("div");
+      toast.className = "toast";
+      toast.textContent = text;
+      rewardArea.appendChild(toast);
+      setTimeout(() => toast.remove(), 2200);
+    }
+
+    function getRandomReward(list){
+      return list[Math.floor(Math.random() * list.length)];
+    }
+
+    function startRewardFlow(){
+      if(pin.length !== 4){
+        hintLine.innerHTML = "・暗証番号を4桁入力してね";
+        return;
+      }
+
+      if(!VALID_PINS.includes(pin)){
+        hintLine.innerHTML = "・その暗証番号は違うみたい";
+        return;
+      }
+
+      playRewardSequence();
+    }
+
+    function playRewardSequence(){
+      setMode("reward");
+      clearRewardArea();
+
+      rewardTitle.textContent = "REWARD";
+      rewardSub.textContent = "受取り増す🐶🐾";
+
+      const moneyReward = getRandomReward(IMG.moneyRewards);
+      const bonusReward = getRandomReward(IMG.bonusRewards);
+
+      const newBalance1 = addToBalance(moneyReward.value, moneyReward.title);
+      const newBalance2 = addToBalance(bonusReward.value, bonusReward.title);
+
+      rewardTimers.push(setTimeout(() => {
+        moneyRainStage();
+      }, 450));
+
+      rewardTimers.push(setTimeout(() => {
+        rewardSub.textContent = "金額の受け取り完了だよ💴";
+        showRewardImage(moneyReward);
+      }, 1600));
+
+      rewardTimers.push(setTimeout(() => {
+        rewardSub.textContent = "さらにごほうびが届いたよ✨";
+        showRewardImage(bonusReward);
+      }, 4200));
+
+      rewardTimers.push(setTimeout(() => {
+        showToast("現在の残高 " + formatYen(newBalance2));
+      }, 5000));
+    }
+
+    btnEnter.addEventListener("click", () => {
+      setMode("atm");
+    });
+
+    btnEnterReward.addEventListener("click", startRewardFlow);
+
+    keypad.addEventListener("click", (e) => {
+      const b = e.target.closest("button");
+      if(!b) return;
+
+      const k = b.dataset.k;
+      if(k === "clear"){
+        pin = "";
+        updatePinUI();
+        return;
+      }
+
+      if(pin.length < 4){
+        pin += k;
+        updatePinUI();
+      }
+    });
+
+    btnReset.addEventListener("click", () => {
+      setMode("gate");
+    });
+
+    btnHint.addEventListener("click", openHint);
+    modalClose.addEventListener("click", closeHint);
+
+    modalBack.addEventListener("click", (e) => {
+      if(e.target === modalBack){
+        closeHint();
+      }
+    });
+
+    modalSet8888.addEventListener("click", () => {
+      pin = "8888";
       updatePinUI();
-    }
+      closeHint();
+    });
 
-    if(mode === "atm"){
-      app.classList.remove("gateMode");
-      heroLabel.style.display = "block";
-      setHero(IMG.atm, "宇宙銀行ATM", "暗証番号を入力してね。");
-      gateAction.style.display = "none";
-      atmWrap.style.display = "block";
-      rewardStage.style.display = "none";
-      updatePinUI();
-    }
+    btnBackATM.addEventListener("click", () => {
+      setMode("atm");
+    });
 
-    if(mode === "reward"){
-      app.classList.remove("gateMode");
-      heroLabel.style.display = "none";
-      setHero(IMG.gate, "", "");
-      gateAction.style.display = "none";
-      atmWrap.style.display = "none";
-      rewardStage.style.display = "block";
-    }
-  }
+    btnRewardAgain.addEventListener("click", () => {
+      playRewardSequence();
+    });
 
-  function updatePinUI(){
-    pinView.textContent = (pin + "----").slice(0,4);
-    const dots = [];
-    for(let i=0;i<4;i++){
-      dots.push(i < pin.length ? "●" : "◯");
-    }
-    pinDots.textContent = dots.join(" ");
-    btnEnterReward.style.opacity = pin.length === 4 ? "1" : ".55";
-    hintLine.innerHTML = "・暗証番号は4桁<br>・4桁入力して ↩ を押すと受け取り開始";
-  }
+    btnPassbookTop.addEventListener("click", openPassbook);
+    btnPassbookReward.addEventListener("click", openPassbook);
+    passbookClose.addEventListener("click", closePassbook);
 
-  function openModal(){
-    modalBack.style.display = "flex";
-  }
+    passbookBack.addEventListener("click", (e) => {
+      if(e.target === passbookBack){
+        closePassbook();
+      }
+    });
 
-  function closeModal(){
-    modalBack.style.display = "none";
-  }
+    btnCopyBalance.addEventListener("click", async () => {
+      const text = "宇宙銀行の残高は " + formatYen(getBalance()) + " だよ✨";
+      try{
+        await navigator.clipboard.writeText(text);
+        btnCopyBalance.textContent = "残高をコピーしたよ";
+        setTimeout(() => {
+          btnCopyBalance.textContent = "残高をチェック";
+        }, 1600);
+      }catch(err){
+        btnCopyBalance.textContent = "残高は " + formatYen(getBalance());
+        setTimeout(() => {
+          btnCopyBalance.textContent = "残高をチェック";
+        }, 1600);
+      }
+    });
 
-  function clearRewardArea(){
-    rewardArea.innerHTML = "";
-    const sparkle = document.createElement("div");
-    sparkle.className = "sparkle";
-    rewardArea.appendChild(sparkle);
-  }
+    heroImg.addEventListener("error", () => {
+      console.warn("HERO画像が見つからないかも：", heroImg.src);
+    });
 
-  function moneyRainStage(){
-    const icons = ["💴","🪙","💴","🪙","💴"];
-    for(let i=0;i<26;i++){
-      setTimeout(() => {
-        const el = document.createElement("div");
-        el.className = "moneyRain";
-        el.textContent = icons[Math.floor(Math.random() * icons.length)];
-        el.style.left = Math.random() * 92 + "%";
-        rewardArea.appendChild(el);
-        setTimeout(() => el.remove(), 2600);
-      }, i * 80);
-    }
-  }
-
-  function showMainRewardImage(){
-    const reward = IMG.stage2Rewards[Math.floor(Math.random() * IMG.stage2Rewards.length)];
-
-    const wrap = document.createElement("div");
-    wrap.className = "mainRewardWrap";
-
-    const img = document.createElement("img");
-    img.src = cacheBust(reward.src);
-    img.alt = reward.title;
-    img.className = "mainRewardImage";
-
-    const title = document.createElement("div");
-    title.className = "mainRewardTitle";
-    title.textContent = reward.title;
-
-    wrap.appendChild(img);
-    wrap.appendChild(title);
-    rewardArea.appendChild(wrap);
-
-    rewardTitle.textContent = "REWARD";
-    rewardSub.textContent = "しあわせ受け取り成功だよ🐾";
-  }
-
-  function startRewardFlow(){
-    if(pin.length !== 4){
-      hintLine.innerHTML = "・暗証番号を4桁入力してね";
-      return;
-    }
-
-        if(!VALID_PINS.includes(pin)){
-      hintLine.innerHTML = "・その暗証番号は違うみたい";
-      return;
-    }
-
-    playRewardSequence();
-  }
-
-  function playRewardSequence(){
-    setMode("reward");
-    clearRewardArea();
-
-    rewardTitle.textContent = "REWARD";
-    rewardSub.textContent = "受取り増す🐶🐾";
-
-    setTimeout(() => {
-      moneyRainStage();
-    }, 700);
-
-    setTimeout(() => {
-      rewardSub.textContent = "しあわせが届くよ💴🪙";
-      showMainRewardImage();
-    }, 2400);
-  }
-
-  btnEnter.addEventListener("click", () => {
-    setMode("atm");
-  });
-
-  btnEnterReward.addEventListener("click", startRewardFlow);
-
-  keypad.addEventListener("click", (e) => {
-    const b = e.target.closest("button");
-    if(!b) return;
-    const k = b.dataset.k;
-
-    if(k === "clear"){
-      pin = "";
-      updatePinUI();
-      return;
-    }
-
-    if(pin.length < 4){
-      pin += k;
-      updatePinUI();
-    }
-  });
-
-  btnReset.addEventListener("click", () => {
     setMode("gate");
-  });
-
-  btnHint.addEventListener("click", openModal);
-  modalClose.addEventListener("click", closeModal);
-
-  modalBack.addEventListener("click", (e) => {
-    if(e.target === modalBack){
-      closeModal();
-    }
-  });
-
-  modalSet8888.addEventListener("click", () => {
-    pin = "8888";
-    updatePinUI();
-    closeModal();
-  });
-
-  btnBackATM.addEventListener("click", () => {
-    setMode("atm");
-  });
-
-  btnRewardAgain.addEventListener("click", () => {
-    playRewardSequence();
-  });
-
-  heroImg.addEventListener("error", () => {
-    console.warn("HERO画像が見つからないかも：", heroImg.src);
-  });
-
-  setMode("gate");
-</script>
+  </script>
 </body>
 </html>
