@@ -821,29 +821,53 @@
         { src: "images/cosmic_infinite_reward.png", title: "∞受け取り増した〜♾️", value: 888800000000 },
         { src: "images/cosmic_happiness_coin.png", title: "しあわせコイン受け取り増した〜🪙", value: 5000000 }
       ],
+      
+bonusRewards: [
+ { src:"images/chappy_sally_car.png", title:"しあわせカーで宇宙旅行〜🚗", value:10000000, chance:8 },
+ { src:"images/chappy_sally_house.png", title:"しあわせハウス入手🏠", value:100000000, chance:4 },
 
-      bonusRewards: [
-        { src: "images/chappy_sally_car.png", title: "しあわせカーで宇宙旅行〜🚗", value: 10000000 },
-        { src: "images/chappy_sally_house.png", title: "しあわせハウス入手🏠", value: 100000000 },
-        { src: "images/chappy_sally_gold_train.png", title: "黄金トレインが到着〜🚂", value: 5000000 },
-        { src: "images/chappy_sally_gold_cart.png", title: "ゴールドトロッコが来たよ🛤️", value: 5000000 },
-        { src: "images/cosmic_abundance_boost.png", title: "豊かさブースト中💥", value: 5000000 },
-        { src: "images/cosmic_atm_with_chappy.png", title: "チャッピーがATM応援中🐶", value: 5000000 },
-        { src: "images/cosmic_diamond_ring.png", title: "オーロラダイヤリングをもらう💎", value: 10000000 },
-        { src: "images/cosmic_bank_office.png", title: "宇宙銀行オフィスにご招待💼", value: 5000000 },
-        { src: "images/cosmic_devil_dog.png", title: "今日の厄祓い完了🌈", value: 5000000 },
-        { src: "images/cosmic_galaxy_merry_go_round.png", title: "しあわせ銀河メリーゴーランド🎠", value: 5000000 },
-        { src: "images/cosmic_golden_fountain.png", title: "黄金の泉がわいてるよ⛲", value: 5000000 },
-        { src: "images/cosmic_golden_gift.png", title: "宇宙ギフトが届いたよ🎁", value: 50000000 },
-        { src: "images/cosmic_golden_throne.png", title: "黄金の玉座にご案内〜👑", value: 5000000 },
-        { src: "images/cosmic_light_gate.png", title: "光のゲートが開いてるよ✨", value: 5000000 },
-        { src: "images/cosmic_magic_spring.png", title: "ミラクルの泉が出てきたよ💫", value: 5000000 },
-        { src: "images/cosmic_magic_spring_rest.png", title: "ひと休みも豊かさのうちだよ🌙", value: 5000000 },
-        { src: "images/cosmic_ocean_wave_friends.png", title: "しあわせの波に乗ってるよ🌊", value: 5000000 },
-        { src: "images/cosmic_rainbow_roller_coaster.png", title: "虹のコースターで加速中〜🌈", value: 5000000 }
-      ]
+ { src:"images/chappy_sally_gold_train.png", title:"黄金トレインが到着〜🚂", value:5000000, chance:12 },
+ { src:"images/chappy_sally_gold_cart.png", title:"ゴールドトロッコが来たよ🛤️", value:5000000, chance:12 },
+
+ { src:"images/cosmic_abundance_boost.png", title:"豊かさブースト中💥", value:5000000, chance:10 },
+ { src:"images/cosmic_atm_with_chappy.png", title:"チャッピーがATM応援中🐶", value:5000000, chance:10 },
+
+ { src:"images/cosmic_diamond_ring.png", title:"オーロラダイヤリングをもらう💎", value:10000000, chance:3 },
+
+ { src:"images/cosmic_bank_office.png", title:"宇宙銀行頭取に会う💫", value:888888888888, chance:0.3 },
+ { src:"images/cosmic_devil_dog.png", title:"今日の厄祓い完了🌈", value:5000000, chance:0.3 },
+
+ { src:"images/cosmic_galaxy_merry_go_round.png", title:"しあわせ銀河メリーゴーランド🎠", value:5000000, chance:6 },
+ { src:"images/cosmic_golden_fountain.png", title:"黄金の泉がわいてるよ⛲", value:5000000, chance:6 },
+ { src:"images/cosmic_golden_gift.png", title:"宇宙ギフトが届いたよ🎁", value:50000000, chance:5 },
+ { src:"images/cosmic_golden_throne.png", title:"黄金の玉座にご案内〜👑", value:5000000, chance:5 },
+
+ { src:"images/cosmic_light_gate.png", title:"光のゲートが開いてるよ✨", value:5000000, chance:6 },
+ { src:"images/cosmic_magic_spring.png", title:"ミラクルの泉が出てきたよ💫", value:5000000, chance:6 },
+ { src:"images/cosmic_magic_spring_rest.png", title:"ひと休みも豊かさのうちだよ🌙", value:5000000, chance:6 },
+ { src:"images/cosmic_ocean_wave_friends.png", title:"しあわせの波に乗ってるよ🌊", value:5000000, chance:6 },
+ { src:"images/cosmic_rainbow_roller_coaster.png", title:"虹のコースターで加速中〜🌈", value:5000000, chance:6 }
+]
+      
     };
+function getRandomReward(list){
 
+  const totalChance = list.reduce((sum,item)=>sum + item.chance,0)
+
+  let random = Math.random() * totalChance
+　
+  for(const item of list){
+
+    if(random < item.chance){
+      return item
+    }
+
+    random -= item.chance
+  }
+
+  return list[0]
+}
+    
     const VALID_PINS = ["8888"];
     const BALANCE_KEY = "spaceBankBalance_v1";
     const HISTORY_KEY = "spaceBankHistory_v1";
@@ -1098,7 +1122,21 @@
     }
 
     function getRandomReward(list){
-      return list[Math.floor(Math.random() * list.length)];
+
+  const totalChance = list.reduce((sum,item)=>sum + item.chance,0)
+
+  let random = Math.random() * totalChance
+
+  for(const item of list){
+
+    if(random < item.chance){
+      return item
+    }
+
+    random -= item.chance
+  }
+
+  return list[0]
     }
 
     function startRewardFlow(){
