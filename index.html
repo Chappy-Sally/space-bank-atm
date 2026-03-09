@@ -687,9 +687,9 @@
 
     <div class="card">
       <div class="hero">
-        <img id="heroImg" alt="宇宙銀行" />
-        <div class="label" id="heroLabel">
-          <b id="heroTitle">ようこそ、宇宙銀行へ</b>
+        <img id="heroImg" src="images/gate.png" alt="宇宙銀行" />
+<div class="label" id="heroLabel">
+  <b id="heroTitle">ようこそ、宇宙銀行へ</b>
           <span id="heroSub">🐾🔘で入店してね。</span>
         </div>
         <div class="mascot-peek"></div>
@@ -1288,6 +1288,9 @@ if(reward.src.includes("cosmic_bank_office.png")){
 if(loginBtn){
   loginBtn.textContent = (localStorage.getItem("atm_streak") || 1) + "日目";
 }
+    document.getElementById("btnPassbookTop").onclick = function(){
+  setMode("passbook");
+};
   </script>
 </body>
 </html>
