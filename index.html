@@ -679,17 +679,17 @@
       </div>
 
       <div class="top-actions">
-        <button id="loginDayBtn">1日目</button>
         <button class="pill gold" id="btnPassbookTop">通帳を見る</button>
+        <button class="pill" id="btnReset">最初から</button>
         <button class="pill gold" id="btnHint">暗証番号ヒント</button>
       </div>
     </div>
 
     <div class="card">
       <div class="hero">
-        <img id="heroImg" src="images/gate.png" alt="宇宙銀行" />
-<div class="label" id="heroLabel">
-  <b id="heroTitle">ようこそ、宇宙銀行へ</b>
+        <img id="heroImg" alt="宇宙銀行" />
+        <div class="label" id="heroLabel">
+          <b id="heroTitle">ようこそ、宇宙銀行へ</b>
           <span id="heroSub">🐾🔘で入店してね。</span>
         </div>
         <div class="mascot-peek"></div>
@@ -817,11 +817,10 @@
         { src: "images/cosmic_reward_2million.png", title: "200万円受け取り増した〜💰", value: 2000000 },
         { src: "images/cosmic_reward_100million.png", title: "1億円受け取り増した〜✨", value: 100000000 },
         { src: "images/cosmic_reward_2million.png", title: "200億円受け取り増した〜🎉", value: 20000000000 },
-        { src: "images/cosmic_reward_500million.png", title: "5億円受け取り増した〜🌈", value: 500000000 },
+         { src: "images/cosmic_reward_500million.png", title: "5億円受け取り増した〜🌈", value: 500000000 },
         { src: "images/cosmic_infinite_reward.png", title: "∞受け取り増した〜♾️", value: 888800000000 },
         { src: "images/cosmic_happiness_coin.png", title: "しあわせコイン受け取り増した〜🪙", value: 5000000 }
       ],
-      
 bonusRewards: [
  { src:"images/chappy_sally_car.png", title:"しあわせカーで宇宙旅行〜🚗", value:10000000, chance:8 },
  { src:"images/chappy_sally_house.png", title:"しあわせハウス入手🏠", value:100000000, chance:4 },
@@ -834,8 +833,8 @@ bonusRewards: [
 
  { src:"images/cosmic_diamond_ring.png", title:"オーロラダイヤリングをもらう💎", value:10000000, chance:3 },
 
- { src:"images/cosmic_bank_office.png", title:"宇宙銀行頭取に会う💫", value:888888888888, chance:30 },
- { src:"images/cosmic_devil_dog.png", title:"今日の厄祓い完了🌈", value:5000000, chance:0.3 },
+ { src:"images/cosmic_bank_office.png", title:"宇宙銀行頭取に会う💫", value:888888888888, chance:1},
+ { src:"images/cosmic_devil_dog.png", title:"今日の厄祓い完了🌈", value:5000000, chance:1},
 
  { src:"images/cosmic_galaxy_merry_go_round.png", title:"しあわせ銀河メリーゴーランド🎠", value:5000000, chance:6 },
  { src:"images/cosmic_golden_fountain.png", title:"黄金の泉がわいてるよ⛲", value:5000000, chance:6 },
@@ -850,7 +849,7 @@ bonusRewards: [
 ]
       
     };
-function getRandomReward(list){
+    function getRandomReward(list){
 
   const totalChance = list.reduce((sum,item)=>sum + item.chance,0)
 
@@ -893,8 +892,7 @@ function getRandomReward(list){
     const rewardSub = document.getElementById("rewardSub");
     const btnRewardAgain = document.getElementById("btnRewardAgain");
     const btnBackATM = document.getElementById("btnBackATM");
-
-    const btnReset = document.getElementById("btnReset");
+const btnReset = document.getElementById("btnReset");
     const btnHint = document.getElementById("btnHint");
     const btnPassbookTop = document.getElementById("btnPassbookTop");
 
@@ -945,10 +943,6 @@ function getRandomReward(list){
       setHistory(list.slice(0, 20));
     }
 
-    function getLoginDay(){
-  return parseInt(localStorage.getItem("atm_streak") || "1");
-    }
-    
     function addToBalance(value, title){
       const current = getBalance();
       const next = current + value;
@@ -1015,8 +1009,7 @@ function getRandomReward(list){
     function setMode(next){
       clearTimers();
       mode = next;
-
-      if(mode === "gate"){
+   if(mode === "gate"){
         app.classList.add("gateMode");
         heroLabel.style.display = "none";
         setHero(IMG.gate, "", "");
@@ -1037,7 +1030,7 @@ function getRandomReward(list){
         updatePinUI();
       }
 
-      if(mode === "reward"){
+    if(mode === "reward"){
         app.classList.remove("gateMode");
         heroLabel.style.display = "none";
         setHero(IMG.gate, "", "");
@@ -1283,7 +1276,6 @@ if(reward.src.includes("cosmic_bank_office.png")){
     });
 
     setMode("gate");
-
   </script>
 </body>
 </html>
