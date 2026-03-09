@@ -1105,25 +1105,25 @@ function getRandomReward(list){
 
  const value = document.createElement("div");
 
-if(reward.src.includes("chappy_sally_invitation.png")){
+if(reward.src.includes("cosmic_bank_office.png")){
 
+  img.src = cacheBust("images/chappy_sally_invitation.png");
   title.textContent = "🌈宇宙銀行から招待状が届きました🌈";
   value.textContent = "頭取ルームへご案内します✨";
 
-}else if(reward.src.includes("cosmic_bank_office.png")){
-
-  moneyRainStage();
-
-  title.textContent = "🌈宇宙銀行頭取に招待されました🌈 ご財増しました✨";
-  value.textContent = "888,888,888,888";
+  setTimeout(() => {
+    img.src = cacheBust("images/cosmic_bank_office.png");
+    moneyRainStage();
+    title.textContent = "🌈宇宙銀行頭取に招待されました🌈 ご財増しました✨";
+    value.textContent = "888,888,888,888";
+  }, 1500);
 
 }else{
 
   title.textContent = reward.title;
   value.textContent = "+" + formatYen(reward.value);
 
-      }
-
+}
       wrap.appendChild(img);
       wrap.appendChild(title);
       wrap.appendChild(value);
