@@ -1104,8 +1104,19 @@ function getRandomReward(list){
       title.textContent = reward.title;
 
       const value = document.createElement("div");
-      value.className = "mainRewardValue";
-      value.textContent = "＋" + formatYen(reward.value);
+      if(reward.src.includes("cosmic_bank_office")){
+
+  title.innerHTML = "🌈宇宙銀行頭取に招待されました🌈<br>ご財増しました！";
+
+  value.textContent = "888,888,888,888";
+
+}else{
+
+  title.textContent = reward.title;
+
+  value.textContent = "+" + formatYen(reward.value);
+
+      }
 
       wrap.appendChild(img);
       wrap.appendChild(title);
