@@ -373,10 +373,10 @@
     }
 
     .rewardControls{
-      padding:12px;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
+  　　padding:12px;
+  　　display:flex;
+  　　flex-direction:column;
+  　　gap:10px;
     }
 
     .rewardControlBtn{
@@ -431,15 +431,15 @@
       100%{ transform:translateY(360px) rotate(18deg); opacity:0; }
     }
 
-    .mainRewardWrap{
-      position:absolute;
-      left:50%;
-      top:52%;
-      transform:translate(-50%, -50%);
-      width:min(72%, 260px);
-      z-index:20;
-      animation:rewardPop .45s ease-out forwards;
-      text-align:center;
+.mainRewardWrap{
+  position:absolute;
+  left:50%;
+  top:56%;
+  transform:translate(-50%, -50%);
+  width:min(72%, 260px);
+  z-index:20;
+  animation:rewardPop .45s ease-out forwards;
+  text-align:center;
     }
 
     .mainRewardImage{
@@ -753,7 +753,6 @@
 
         <div class="rewardControls">
           <button class="rewardControlBtn" id="btnRewardAgain">もう一回受け取る</button>
-          <button class="rewardControlBtn gold" id="btnPassbookReward">通帳を見に行く</button>
         </div>
       </div>
     </div>
@@ -874,7 +873,6 @@
     const btnReset = document.getElementById("btnReset");
     const btnHint = document.getElementById("btnHint");
     const btnPassbookTop = document.getElementById("btnPassbookTop");
-    const btnPassbookReward = document.getElementById("btnPassbookReward");
 
     const modalBack = document.getElementById("modalBack");
     const modalClose = document.getElementById("modalClose");
@@ -1197,7 +1195,6 @@
     });
 
     btnPassbookTop.addEventListener("click", openPassbook);
-    btnPassbookReward.addEventListener("click", openPassbook);
     passbookClose.addEventListener("click", closePassbook);
 
     passbookBack.addEventListener("click", (e) => {
