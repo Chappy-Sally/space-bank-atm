@@ -1103,17 +1103,18 @@ function getRandomReward(list){
       title.className = "mainRewardTitle";
       title.textContent = reward.title;
 
-      const value = document.createElement("div");
-      if(reward.src.includes("chappy_sally_invitation.png")){
+ const value = document.createElement("div");
 
- 　　　 title.textContent = "🌈宇宙銀行から招待状が届きました🌈";
-　　　  value.textContent = "頭取ルームへご案内します✨";
+if(reward.src.includes("chappy_sally_invitation.png")){
 
-　}else if(reward.src.includes("cosmic_bank_office.png")){
+  title.textContent = "🌈宇宙銀行から招待状が届きました🌈";
+  value.textContent = "頭取ルームへご案内します✨";
+
+}else if(reward.src.includes("cosmic_bank_office.png")){
 
   moneyRainStage();
 
-  title.innerHTML = "🌈宇宙銀行頭取に招待されました🌈 ご財増しました✨";
+  title.textContent = "🌈宇宙銀行頭取に招待されました🌈 ご財増しました✨";
   value.textContent = "888,888,888,888";
 
 }else{
