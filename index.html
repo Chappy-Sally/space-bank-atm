@@ -1282,21 +1282,13 @@ if(reward.src.includes("cosmic_bank_office.png")){
       console.warn("HERO画像が見つからないかも：", heroImg.src);
     });
 
-    window.onload = function(){
+    setMode("gate");
+checkDailyBonus();
 
-  setMode("gate");
-  checkDailyBonus();
-
-  const loginBtn = document.getElementById("loginDayBtn");
-  if(loginBtn){
-    loginBtn.textContent =
-      (localStorage.getItem("atm_streak") || 1) + "日目";
-  }
-
-  document.getElementById("btnPassbookTop").onclick = function(){
-    setMode("passbook");
-  };
-};
+const loginBtn = document.getElementById("loginDayBtn");
+if(loginBtn){
+  loginBtn.textContent = (localStorage.getItem("atm_streak") || 1) + "日目";
+}
   </script>
 </body>
 </html>
