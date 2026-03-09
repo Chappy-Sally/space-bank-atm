@@ -679,8 +679,8 @@
       </div>
 
       <div class="top-actions">
+        <button id="loginDayBtn">1日目</button>
         <button class="pill gold" id="btnPassbookTop">通帳を見る</button>
-        <button class="pill" id="btnReset">最初から</button>
         <button class="pill gold" id="btnHint">暗証番号ヒント</button>
       </div>
     </div>
@@ -945,6 +945,10 @@ function getRandomReward(list){
       setHistory(list.slice(0, 20));
     }
 
+    function getLoginDay(){
+  return parseInt(localStorage.getItem("atm_streak") || "1");
+    }
+    
     function addToBalance(value, title){
       const current = getBalance();
       const next = current + value;
@@ -1280,6 +1284,10 @@ if(reward.src.includes("cosmic_bank_office.png")){
 
     setMode("gate");
   checkDailyBonus();
+  const loginBtn = document.getElementById("loginDayBtn");
+if(loginBtn){
+  loginBtn.textContent = getLoginDay() + "日目";
+}
   </script>
 </body>
 </html>
