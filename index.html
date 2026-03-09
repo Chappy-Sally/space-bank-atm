@@ -1286,7 +1286,7 @@ if(reward.src.includes("cosmic_bank_office.png")){
   checkDailyBonus();
   const loginBtn = document.getElementById("loginDayBtn");
 if(loginBtn){
-  loginBtn.textContent = getLoginDay() + "日目";
+  loginBtn.textContent = (localStorage.getItem("atm_streak") || 1) + "日目";
 }
   </script>
 </body>
