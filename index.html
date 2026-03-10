@@ -364,13 +364,13 @@
       color:var(--muted);
     }
 
- .rewardArea{
-  position:relative;
-  height:320px;
-  overflow:hidden;
-  border-top:1px solid rgba(255,255,255,.08);
-  border-bottom:1px solid rgba(255,255,255,.08);
- }
+    .rewardArea{
+      position:relative;
+      height:320px;
+      overflow:hidden;
+      border-top:1px solid rgba(255,255,255,.08);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
 
     .rewardControls{
       padding:60px 12px 12px;
@@ -430,32 +430,33 @@
       10%{ opacity:1; }
       100%{ transform:translateY(360px) rotate(18deg); opacity:0; }
     }
-    
-.mainRewardWrap{
-  margin:10px auto 0;
-  width:min(72%, 260px);
-  z-index:20;
-  animation:rewardPop .45s ease-out forwards;
-  text-align:center;
-}
-     
- .mainRewardImage{
-  width:100%;
-  max-width:260px;
-  height:auto;
-  display:block;
-  margin:0 auto;
-  border-radius:12px;
- }
 
-    ..mainRewardTitle{
-  margin-top:6px;
-  font-size:15px;
-  font-weight:800;
-  color:var(--text);
-  text-shadow:0 2px 8px rgba(0,0,0,.35);
-  line-height:1.45;
-}
+    .mainRewardWrap{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%, -50%);
+      width:min(72%, 260px);
+      z-index:20;
+      animation:rewardPop .45s ease-out forwards;
+      text-align:center;
+    }
+
+    .mainRewardImage{
+      width:100%;
+      display:block;
+      border-radius:20px;
+      box-shadow:0 20px 50px rgba(0,0,0,.35);
+    }
+
+    .mainRewardTitle{
+      margin-top:8px;
+      font-size:15px;
+      font-weight:800;
+      color:var(--text);
+      text-shadow:0 2px 8px rgba(0,0,0,.35);
+      line-height:1.45;
+    }
 
     .mainRewardValue{
       margin-top:6px;
@@ -474,6 +475,7 @@
       position:absolute;
       left:50%;
       bottom:14px;
+      transform:translateX(-50%);
       padding:10px 14px;
       border-radius:999px;
       font-size:12px;
@@ -788,6 +790,7 @@
       <div id="collectionGrid" class="collectionGrid"></div>
     </div>
   </div>
+
   <div class="modalBack" id="modalBack">
     <div class="modal">
       <h3>暗証番号ヒント</h3>
@@ -843,21 +846,20 @@
       atm: "images/cosmic_bank_atm.png",
 
       moneyRewards: [
-  { src: "images/cosmic_reward_10000yen.png", title: "1万円受け取り増した〜💴", value: 10000, chance: 30 },
+  { src: "images/cosmic_reward_10000yen.png", title: "1万円受け取り増した〜💴", value: 10000, chance: 35 },
   { src: "images/cosmic_reward_2million.png", title: "200万円受け取り増した〜💰", value: 2000000, chance: 25 },
-  { src: "images/cosmic_reward_100million.png", title: "1億円受け取り増した〜✨", value: 100000000, chance: 18 },
-  { src: "images/cosmic_reward_500million.png", title: "5億円受け取り増した〜🌈", value: 500000000, chance: 12 },
-  { src: "images/cosmic_happiness_coin.png", title: "しあわせコイン受け取り増した〜🪙", value: 5000000, chance: 20 },
-  { src: "images/cosmic_infinite_reward.png", title: "∞受け取り増した〜♾️", value: 888800000000, chance: 3 }
+  { src: "images/cosmic_reward_100million.png", title: "1億円受け取り増した〜✨", value: 100000000, chance: 15 },
+  { src: "images/cosmic_reward_500million.png", title: "5億円受け取り増した〜🌈", value: 500000000, chance: 10 },
+  { src: "images/cosmic_happiness_coin.png", title: "しあわせコイン受け取り増した〜🪙", value: 5000000, chance: 10 },
+  { src: "images/cosmic_infinite_reward.png", title: "∞受け取り増した〜♾️", value: 888888888, chance: 5 }
 ],
-
       bonusRewards: [
         { src:"images/chappy_sally_gold_train.png", title:"黄金トレインが到着〜🚂", value:5000000, chance:12 },
         { src:"images/chappy_sally_gold_cart.png", title:"ゴールドトロッコが来たよ🛤️", value:5000000, chance:12 },
         { src:"images/cosmic_abundance_boost.png", title:"豊かさブースト中💥", value:5000000, chance:10 },
         { src:"images/cosmic_atm_with_chappy.png", title:"チャッピーがATM応援中🐶", value:5000000, chance:10 },
         { src:"images/cosmic_bank_office.png", title:"宇宙銀行頭取に会う💫", value:888888888, chance:3 },
-        { src:"images/cosmic_devil_dog.png", title:"邪鬼が逃げて行った🌈厄祓い完了！", value:888888888, chance:3 },
+        { src:"images/cosmic_devil_dog.png", title:"邪鬼が逃げた🌈厄祓い完了！", value:5000000, chance:5 },
         { src:"images/cosmic_galaxy_merry_go_round.png", title:"しあわせ銀河メリーゴーランド🎠", value:5000000, chance:6 },
         { src:"images/cosmic_golden_fountain.png", title:"黄金の泉がわいてるよ⛲", value:5000000, chance:6 },
         { src:"images/cosmic_golden_gift.png", title:"宇宙ギフトが届いたよ🎁", value:50000000, chance:5 },
