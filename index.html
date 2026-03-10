@@ -365,18 +365,18 @@
     }
 
     .rewardArea{
-  　　position:relative;
-  　　height:320px;
-  　　overflow:hidden;
-  　　border-top:1px solid rgba(255,255,255,.08);
- 　　 border-bottom:1px solid rgba(255,255,255,.08);
+      position:relative;
+      height:320px;
+      overflow:hidden;
+      border-top:1px solid rgba(255,255,255,.08);
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
 
     .rewardControls{
-     padding:60px 12px 12px;
-     display:flex;
-     flex-direction:column;
-     gap:10px;
+      padding:60px 12px 12px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
     }
 
     .rewardControlBtn{
@@ -431,15 +431,15 @@
       100%{ transform:translateY(360px) rotate(18deg); opacity:0; }
     }
 
-.mainRewardWrap{
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%, -50%);
-  width:min(72%, 260px);
-  z-index:20;
-  animation:rewardPop .45s ease-out forwards;
-  text-align:center;
+    .mainRewardWrap{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%, -50%);
+      width:min(72%, 260px);
+      z-index:20;
+      animation:rewardPop .45s ease-out forwards;
+      text-align:center;
     }
 
     .mainRewardImage{
@@ -654,6 +654,35 @@
       color:var(--muted);
     }
 
+    .collectionGrid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+    }
+
+    .collectionItem{
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:14px;
+      padding:6px;
+      text-align:center;
+      background:rgba(255,255,255,.05);
+    }
+
+    .collectionItem img{
+      width:100%;
+      aspect-ratio:1/1;
+      object-fit:cover;
+      border-radius:10px;
+      display:block;
+    }
+
+    .collectionName{
+      font-size:11px;
+      margin-top:4px;
+      color:var(--text);
+      line-height:1.4;
+    }
+
     .gateMode .topbar{
       display:none;
     }
@@ -661,7 +690,6 @@
     @media (max-width:430px){
       .rewardArea{ height:260px; }
       .mainRewardWrap{ width:min(70%, 240px); }
-      .rewardControls{ grid-template-columns:1fr; }
       .top-actions{ gap:6px; }
       .pill{ font-size:11px; padding:8px 9px; }
     }
@@ -680,7 +708,7 @@
 
       <div class="top-actions">
         <button class="pill gold" id="btnPassbookTop">通帳を見る</button>
-        <button class="pill" id="btnReset">最初から</button>
+        <button class="pill gold" id="btnShop">購入</button>
         <button class="pill gold" id="btnHint">暗証番号ヒント</button>
       </div>
     </div>
@@ -756,8 +784,12 @@
         </div>
       </div>
     </div>
-  </div>
 
+    <div class="card" id="collectionCard">
+      <h3 style="margin:6px 6px 10px;">宇宙コレクション</h3>
+      <div id="collectionGrid" class="collectionGrid"></div>
+    </div>
+  </div>
   <div class="modalBack" id="modalBack">
     <div class="modal">
       <h3>暗証番号ヒント</h3>
@@ -816,60 +848,47 @@
         { src: "images/cosmic_reward_10000yen.png", title: "1万円受け取り増した〜💴", value: 10000 },
         { src: "images/cosmic_reward_2million.png", title: "200万円受け取り増した〜💰", value: 2000000 },
         { src: "images/cosmic_reward_100million.png", title: "1億円受け取り増した〜✨", value: 100000000 },
-        { src: "images/cosmic_reward_2million.png", title: "200億円受け取り増した〜🎉", value: 20000000000 },
-         { src: "images/cosmic_reward_500million.png", title: "5億円受け取り増した〜🌈", value: 500000000 },
+        { src: "images/cosmic_reward_500million.png", title: "5億円受け取り増した〜🌈", value: 500000000 },
         { src: "images/cosmic_infinite_reward.png", title: "∞受け取り増した〜♾️", value: 888800000000 },
         { src: "images/cosmic_happiness_coin.png", title: "しあわせコイン受け取り増した〜🪙", value: 5000000 }
       ],
-bonusRewards: [
- { src:"images/chappy_sally_car.png", title:"しあわせカーで宇宙旅行〜🚗", value:10000000, chance:8 },
- { src:"images/chappy_sally_house.png", title:"しあわせハウス入手🏠", value:100000000, chance:4 },
 
- { src:"images/chappy_sally_gold_train.png", title:"黄金トレインが到着〜🚂", value:5000000, chance:12 },
- { src:"images/chappy_sally_gold_cart.png", title:"ゴールドトロッコが来たよ🛤️", value:5000000, chance:12 },
-
- { src:"images/cosmic_abundance_boost.png", title:"豊かさブースト中💥", value:5000000, chance:10 },
- { src:"images/cosmic_atm_with_chappy.png", title:"チャッピーがATM応援中🐶", value:5000000, chance:10 },
-
- { src:"images/cosmic_diamond_ring.jpg", title:"オーロラダイヤリングをもらう💎", value:10000000, chance:30 },
-
- { src:"images/cosmic_bank_office.png", title:"宇宙銀行頭取に会う💫", value:888888888888, chance:30},
- { src:"images/cosmic_devil_dog.png", title:"邪鬼が逃げて行った🌈厄祓い完了！", value:5000000, chance:30},
-
- { src:"images/cosmic_galaxy_merry_go_round.png", title:"しあわせ銀河メリーゴーランド🎠", value:5000000, chance:6 },
- { src:"images/cosmic_golden_fountain.png", title:"黄金の泉がわいてるよ⛲", value:5000000, chance:6 },
- { src:"images/cosmic_golden_gift.png", title:"宇宙ギフトが届いたよ🎁", value:50000000, chance:5 },
- { src:"images/cosmic_golden_throne.png", title:"黄金の部屋にご案内〜👑", value:5000000, chance:5 },
-
- { src:"images/cosmic_light_gate.png", title:"光のゲートが開いてるよ✨", value:5000000, chance:6 },
- { src:"images/cosmic_magic_spring.png", title:"ミラクルの泉が出てきたよ💫", value:5000000, chance:6 },
- { src:"images/cosmic_magic_spring_rest.png", title:"ひと休みも豊かさのうちだよ🌙", value:5000000, chance:6 },
- { src:"images/cosmic_ocean_wave_friends.png", title:"しあわせの波に乗ってるよ🌊", value:5000000, chance:6 },
- { src:"images/cosmic_rainbow_roller_coaster.png", title:"虹のコースターで加速中〜🌈", value:5000000, chance:6 }
-]
-      
+      bonusRewards: [
+        { src:"images/chappy_sally_car.png", title:"しあわせカーで宇宙旅行〜🚗", value:10000000, chance:8 },
+        { src:"images/chappy_sally_house.png", title:"しあわせハウス入手🏠", value:100000000, chance:4 },
+        { src:"images/chappy_sally_gold_train.png", title:"黄金トレインが到着〜🚂", value:5000000, chance:12 },
+        { src:"images/chappy_sally_gold_cart.png", title:"ゴールドトロッコが来たよ🛤️", value:5000000, chance:12 },
+        { src:"images/cosmic_abundance_boost.png", title:"豊かさブースト中💥", value:5000000, chance:10 },
+        { src:"images/cosmic_atm_with_chappy.png", title:"チャッピーがATM応援中🐶", value:5000000, chance:10 },
+        { src:"images/cosmic_diamond_ring.jpg", title:"オーロラダイヤリングをもらう💎", value:10000000, chance:30 },
+        { src:"images/cosmic_bank_office.png", title:"宇宙銀行頭取に会う💫", value:888888888888, chance:3 },
+        { src:"images/cosmic_devil_dog.png", title:"邪鬼が逃げて行った🌈厄祓い完了！", value:5000000, chance:5 },
+        { src:"images/cosmic_galaxy_merry_go_round.png", title:"しあわせ銀河メリーゴーランド🎠", value:5000000, chance:6 },
+        { src:"images/cosmic_golden_fountain.png", title:"黄金の泉がわいてるよ⛲", value:5000000, chance:6 },
+        { src:"images/cosmic_golden_gift.png", title:"宇宙ギフトが届いたよ🎁", value:50000000, chance:5 },
+        { src:"images/cosmic_golden_throne.png", title:"黄金の部屋にご案内〜👑", value:5000000, chance:5 },
+        { src:"images/cosmic_light_gate.png", title:"光のゲートが開いてるよ✨", value:5000000, chance:6 },
+        { src:"images/cosmic_magic_spring.png", title:"ミラクルの泉が出てきたよ💫", value:5000000, chance:6 },
+        { src:"images/cosmic_magic_spring_rest.png", title:"ひと休みも豊かさのうちだよ🌙", value:5000000, chance:6 },
+        { src:"images/cosmic_ocean_wave_friends.png", title:"しあわせの波に乗ってるよ🌊", value:5000000, chance:6 },
+        { src:"images/cosmic_rainbow_roller_coaster.png", title:"虹のコースターで加速中〜🌈", value:5000000, chance:6 }
+      ]
     };
-    function getRandomReward(list){
 
-  const totalChance = list.reduce((sum,item)=>sum + item.chance,0)
-
-  let random = Math.random() * totalChance
-　
-  for(const item of list){
-
-    if(random < item.chance){
-      return item
-    }
-
-    random -= item.chance
-  }
-
-  return list[0]
-}
-    
     const VALID_PINS = ["8888"];
     const BALANCE_KEY = "spaceBankBalance_v1";
     const HISTORY_KEY = "spaceBankHistory_v1";
+    const COLLECTION_KEY = "spaceBankCollection_v1";
+
+    const shopItems = [
+      { id:"jet", name:"プライベートジェット", price:300000000, src:"images/cosmic_private_jet_trip.png" },
+      { id:"cruiser", name:"クルーザー", price:200000000, src:"images/cosmic_luxury_yacht_trip.png" },
+      { id:"rocket", name:"ロケット", price:500000000, src:"images/cosmic_space_rocket_trip.png" },
+      { id:"bike", name:"サイドカーバイク", price:10000000, src:"images/cosmic_motorbike_sidecar_trip.png" },
+      { id:"ring", name:"ダイヤリング", price:5000000, src:"images/cosmic_diamond_ring.jpg" },
+      { id:"house", name:"しあわせハウス", price:100000000, src:"images/chappy_sally_house.png" },
+      { id:"building", name:"ビル", price:1000000000, src:"images/cosmic_city_tower_building.png" }
+    ];
 
     const app = document.getElementById("app");
     const heroImg = document.getElementById("heroImg");
@@ -892,9 +911,10 @@ bonusRewards: [
     const rewardSub = document.getElementById("rewardSub");
     const btnRewardAgain = document.getElementById("btnRewardAgain");
     const btnBackATM = document.getElementById("btnBackATM");
-const btnReset = document.getElementById("btnReset");
+
     const btnHint = document.getElementById("btnHint");
     const btnPassbookTop = document.getElementById("btnPassbookTop");
+    const btnShop = document.getElementById("btnShop");
 
     const modalBack = document.getElementById("modalBack");
     const modalClose = document.getElementById("modalClose");
@@ -905,6 +925,7 @@ const btnReset = document.getElementById("btnReset");
     const passbookBalance = document.getElementById("passbookBalance");
     const historyList = document.getElementById("historyList");
     const btnCopyBalance = document.getElementById("btnCopyBalance");
+
     let mode = "gate";
     let pin = "";
     let rewardTimers = [];
@@ -957,6 +978,90 @@ const btnReset = document.getElementById("btnReset");
       return next;
     }
 
+    function getCollection(){
+      try{
+        return JSON.parse(localStorage.getItem(COLLECTION_KEY) || "[]");
+      }catch(err){
+        return [];
+      }
+    }
+
+    function setCollection(arr){
+      localStorage.setItem(COLLECTION_KEY, JSON.stringify(arr));
+    }
+
+    function renderCollection(){
+      const grid = document.getElementById("collectionGrid");
+      if(!grid) return;
+
+      const owned = getCollection();
+      grid.innerHTML = "";
+
+      shopItems.forEach(item => {
+        const box = document.createElement("div");
+        box.className = "collectionItem";
+
+        const img = document.createElement("img");
+        img.src = item.src;
+
+        const name = document.createElement("div");
+        name.className = "collectionName";
+
+        if(owned.includes(item.id)){
+          name.textContent = item.name;
+        }else{
+          img.style.opacity = "0.2";
+          name.textContent = "？？？";
+        }
+
+        box.appendChild(img);
+        box.appendChild(name);
+        grid.appendChild(box);
+      });
+    }
+
+    function buyItem(item){
+      const balance = getBalance();
+
+      if(balance < item.price){
+        alert("残高が足りないよ🐾");
+        return;
+      }
+
+      const owned = getCollection();
+
+      if(owned.includes(item.id)){
+        alert("もう持ってるよ✨");
+        return;
+      }
+
+      setBalance(balance - item.price);
+      owned.push(item.id);
+      setCollection(owned);
+
+      addHistory({
+        title: item.name + " を購入",
+        value: -item.price,
+        date: new Date().toLocaleString("ja-JP")
+      });
+
+      renderCollection();
+      alert(item.name + " を購入しました✨");
+    }
+
+    function openShop(){
+      const itemsText = shopItems
+        .map((item, index) => `${index + 1}. ${item.name}（${formatYen(item.price)}）`)
+        .join("\n");
+
+      const num = prompt("購入する番号を入力してね\n\n" + itemsText);
+      const item = shopItems[Number(num) - 1];
+
+      if(item){
+        buyItem(item);
+      }
+    }
+
     function renderPassbook(){
       passbookBalance.textContent = formatYen(getBalance());
 
@@ -978,7 +1083,12 @@ const btnReset = document.getElementById("btnReset");
 
         const val = document.createElement("div");
         val.className = "val";
-        val.textContent = "+" + formatYen(item.value).replace("¥", "¥");
+
+        if(item.value < 0){
+          val.textContent = "-" + formatYen(Math.abs(item.value)).replace("¥", "¥");
+        }else{
+          val.textContent = "+" + formatYen(item.value).replace("¥", "¥");
+        }
 
         row.appendChild(name);
         row.appendChild(val);
@@ -1005,11 +1115,11 @@ const btnReset = document.getElementById("btnReset");
       rewardTimers.forEach(t => clearTimeout(t));
       rewardTimers = [];
     }
-
     function setMode(next){
       clearTimers();
       mode = next;
-   if(mode === "gate"){
+
+      if(mode === "gate"){
         app.classList.add("gateMode");
         heroLabel.style.display = "none";
         setHero(IMG.gate, "", "");
@@ -1030,7 +1140,7 @@ const btnReset = document.getElementById("btnReset");
         updatePinUI();
       }
 
-    if(mode === "reward"){
+      if(mode === "reward"){
         app.classList.remove("gateMode");
         heroLabel.style.display = "none";
         setHero(IMG.gate, "", "");
@@ -1039,7 +1149,7 @@ const btnReset = document.getElementById("btnReset");
         rewardStage.style.display = "block";
       }
     }
-    
+
     function updatePinUI(){
       pinView.textContent = (pin + "----").slice(0, 4);
       const dots = [];
@@ -1098,59 +1208,52 @@ const btnReset = document.getElementById("btnReset");
 
       const title = document.createElement("div");
       title.className = "mainRewardTitle";
-      title.textContent = reward.title;
 
- const value = document.createElement("div");
+      const value = document.createElement("div");
+      value.className = "mainRewardValue";
 
-if(reward.src.includes("cosmic_bank_office.png")){
+      if(reward.src.includes("cosmic_bank_office.png")){
 
-  img.src = cacheBust("images/chappy_sally_invitation.png");
-  title.textContent = "🌈宇宙銀行から招待状が届きました🌈";
-  value.textContent = "頭取ルームへご案内します✨";
+        img.src = cacheBust("images/chappy_sally_invitation.png");
+        title.textContent = "🌈宇宙銀行から招待状が届きました🌈";
+        value.textContent = "頭取ルームへご案内します✨";
 
-  setTimeout(() => {
-    img.src = cacheBust("images/cosmic_bank_office.png");
-    moneyRainStage();
-    title.textContent = "🌈宇宙銀行頭取に招待されました🌈 ご財増しました✨";
-    value.textContent = "888,888,888,888";
-  }, 1500);
+        setTimeout(() => {
+          img.src = cacheBust("images/cosmic_bank_office.png");
+          moneyRainStage();
+          title.textContent = "🌈宇宙銀行頭取に招待されました🌈 ご財増しました✨";
+          value.textContent = "888,888,888,888";
+        }, 1500);
 
-}else{
+      }else{
+        title.textContent = reward.title;
+        value.textContent = "+" + formatYen(reward.value);
+      }
 
-  title.textContent = reward.title;
-  value.textContent = "+" + formatYen(reward.value);
-
-}
       wrap.appendChild(img);
       wrap.appendChild(title);
       wrap.appendChild(value);
       rewardArea.appendChild(wrap);
     }
 
-    function showToast(text){
-      const toast = document.createElement("div");
-      toast.className = "toast";
-      toast.textContent = text;
-      rewardArea.appendChild(toast);
-      setTimeout(() => toast.remove(), 2200);
-    }
-
     function getRandomReward(list){
+      if(!list || !list.length) return null;
 
-  const totalChance = list.reduce((sum,item)=>sum + item.chance,0)
+      if(list[0].chance == null){
+        return list[Math.floor(Math.random() * list.length)];
+      }
 
-  let random = Math.random() * totalChance
+      const totalChance = list.reduce((sum, item) => sum + item.chance, 0);
+      let random = Math.random() * totalChance;
 
-  for(const item of list){
+      for(const item of list){
+        if(random < item.chance){
+          return item;
+        }
+        random -= item.chance;
+      }
 
-    if(random < item.chance){
-      return item
-    }
-
-    random -= item.chance
-  }
-
-  return list[0]
+      return list[0];
     }
 
     function startRewardFlow(){
@@ -1177,8 +1280,8 @@ if(reward.src.includes("cosmic_bank_office.png")){
       const moneyReward = getRandomReward(IMG.moneyRewards);
       const bonusReward = getRandomReward(IMG.bonusRewards);
 
-      const newBalance1 = addToBalance(moneyReward.value, moneyReward.title);
-      const newBalance2 = addToBalance(bonusReward.value, bonusReward.title);
+      addToBalance(moneyReward.value, moneyReward.title);
+      addToBalance(bonusReward.value, bonusReward.title);
 
       rewardTimers.push(setTimeout(() => {
         moneyRainStage();
@@ -1193,7 +1296,6 @@ if(reward.src.includes("cosmic_bank_office.png")){
         rewardSub.textContent = "さらにごほうびが届いたよ✨";
         showRewardImage(bonusReward);
       }, 4200));
-
     }
 
     btnEnter.addEventListener("click", () => {
@@ -1217,10 +1319,6 @@ if(reward.src.includes("cosmic_bank_office.png")){
         pin += k;
         updatePinUI();
       }
-    });
-
-    btnReset.addEventListener("click", () => {
-      setMode("gate");
     });
 
     btnHint.addEventListener("click", openHint);
@@ -1247,6 +1345,7 @@ if(reward.src.includes("cosmic_bank_office.png")){
     });
 
     btnPassbookTop.addEventListener("click", openPassbook);
+
     passbookClose.addEventListener("click", closePassbook);
 
     passbookBack.addEventListener("click", (e) => {
@@ -1271,10 +1370,15 @@ if(reward.src.includes("cosmic_bank_office.png")){
       }
     });
 
+    btnShop.addEventListener("click", () => {
+      openShop();
+    });
+
     heroImg.addEventListener("error", () => {
       console.warn("HERO画像が見つからないかも：", heroImg.src);
     });
 
+    renderCollection();
     setMode("gate");
   </script>
 </body>
