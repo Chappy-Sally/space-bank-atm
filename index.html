@@ -861,7 +861,7 @@
         { src:"images/cosmic_abundance_boost.png", title:"豊かさブースト中💥", value:5000000, chance:10 },
         { src:"images/cosmic_atm_with_chappy.png", title:"チャッピーがATM応援中🐶", value:5000000, chance:10 },
         { src:"images/cosmic_bank_office.png", title:"宇宙銀行頭取に会う💫", value:888888888, chance:3 },
-        { src:"images/cosmic_devil_dog.png", title:"邪鬼が逃げた🌈厄祓い完了！", value:5000000, chance:5 },
+       { src:"images/cosmic_devil_dog.png", title:"邪鬼が逃げて行った🌈厄祓い完了！", value:888888888, chance:3, chestDrop:true },
         { src:"images/cosmic_galaxy_merry_go_round.png", title:"しあわせ銀河メリーゴーランド🎠", value:5000000, chance:6 },
         { src:"images/cosmic_golden_fountain.png", title:"黄金の泉がわいてるよ⛲", value:5000000, chance:6 },
         { src:"images/cosmic_golden_gift.png", title:"宇宙ギフトが届いたよ🎁", value:50000000, chance:5 },
@@ -1225,8 +1225,19 @@
         }, 1500);
 
       }else{
-        title.textContent = reward.title;
-        value.textContent = "+" + formatYen(reward.value);
+
+  title.textContent = reward.title;
+  value.textContent = "+" + formatYen(reward.value);
+
+  if(reward.chestDrop){
+    setTimeout(() => {
+      img.src = cacheBust("images/cosmic_Takarabako.png");
+      title.textContent = "邪鬼が宝箱を落として行った！";
+      value.textContent = "+" + formatYen(7777777);
+      addToBalance(7777777, "邪鬼が宝箱を落として行った！");
+    }, 2200);
+  }
+
       }
 
       wrap.appendChild(img);
