@@ -695,6 +695,18 @@
       .top-actions{ gap:6px; }
       .pill{ font-size:11px; padding:8px 9px; }
     }
+.mainRewardValue{
+  margin-top:6px;
+  font-size:13px;
+  color:var(--gold);
+  font-weight:800;
+}
+
+.buyAvailable{
+  box-shadow:0 0 12px gold;
+  transform:scale(1.05);
+}
+    
   </style>
 </head>
 <body>
@@ -1045,8 +1057,7 @@
       });
 
       renderCollection();
-      alert(item.name + " を購入しました✨");
-    }
+      alert("✨宇宙銀行ATM✨\n\n" + item.name + " を購入しました💰");
 
     function openShop(){
       const itemsText = shopItems
