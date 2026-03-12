@@ -842,8 +842,8 @@
           <div class="passbookBalanceLabel">あなたの残高</div>
           <div class="passbookBalance" id="passbookBalance">¥0</div>
           <div class="todayIncome">
-✨本日の宇宙入金<br>
-+7,777,777
+  ✨本日の宇宙入金<br>
+  <span id="todayIncome">+0</span>
           </div>
           <div class="passbookSub">
             受け取った金額はここに蓄積されるよ🐾<br>
@@ -1000,6 +1000,14 @@
       return next;
     }
 
+    function getTodayIncome(){
+  const list = getHistory();
+  const today = new Date().toLocaleDateString("ja-JP");
+  return list
+    .filter(item => item.value > 0 && item.date && item.date.startsWith(today))
+    .reduce((sum, item) => sum + item.value, 0);
+}
+    
     function getCollection(){
       try{
         return JSON.parse(localStorage.getItem(COLLECTION_KEY) || "[]");
@@ -1121,7 +1129,9 @@
       renderPassbook();
       passbookBack.style.display = "flex";
     }
-
+document.getElementById("todayIncome").textContent =
+  "+" + formatYen(getTodayIncome());
+    
     function closePassbook(){
       passbookBack.style.display = "none";
     }
