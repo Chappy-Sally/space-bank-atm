@@ -903,14 +903,15 @@
     const COLLECTION_KEY = "spaceBankCollection_v1";
 
     shopItems = [
-  { id:"jet", name:"ジェット", src:"images/jet.png", price:3000000000 },
-  { id:"cruiser", name:"クルーザー", src:"images/cruiser.png", price:2000000000 },
-  { id:"rocket", name:"ロケット", src:"images/rocket.png", price:5000000000 },
-  { id:"bike", name:"サイドカー", src:"images/bike.png", price:10000000 },
-  { id:"ring", name:"リング", src:"images/ring.png", price:5000000 },
-  { id:"house", name:"しあわせハウス", src:"images/house.png", price:100000000 },
-  { id:"building", name:"ビル", src:"images/building.png", price:10000000000 }
-];
+  { const shopItems = [
+      { id:"jet", name:"ジェット", price:300000000, src:"images/cosmic_private_jet_trip.png" },
+      { id:"cruiser", name:"クルーザー", price:200000000, src:"images/cosmic_luxury_yacht_trip.png" },
+      { id:"rocket", name:"ロケット", price:5000000000, src:"images/cosmic_space_rocket_trip.png" },
+      { id:"bike", name:"サイドカーバイク", price:10000000, src:"images/cosmic_motorbike_sidecar_trip.png" },
+      { id:"ring", name:"ダイヤリング", price:5000000, src:"images/cosmic_diamond_ring.jpg" },
+      { id:"house", name:"しあわせハウス", price:1000000000, src:"images/chappy_sally_house.png" },
+      { id:"building", name:"ビル", price:10000000000, src:"images/cosmic_city_tower_building.png" }
+    ];
     const app = document.getElementById("app");
     const heroImg = document.getElementById("heroImg");
     const heroLabel = document.getElementById("heroLabel");
