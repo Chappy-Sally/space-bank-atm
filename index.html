@@ -903,14 +903,14 @@
     const COLLECTION_KEY = "spaceBankCollection_v1";
 
     const shopItems = [
-      { id:"jet", name:"プライベートジェット", price:3000000000, src:"images/cosmic_private_jet_trip.png" },
-      { id:"cruiser", name:"クルーザー", price:2000000000, src:"images/cosmic_luxury_yacht_trip.png" },
-      { id:"rocket", name:"ロケット", price:5000000000, src:"images/cosmic_space_rocket_trip.png" },
-      { id:"bike", name:"サイドカーバイク", price:10000000, src:"images/cosmic_motorbike_sidecar_trip.png" },
-      { id:"ring", name:"ダイヤリング", price:5000000, src:"images/cosmic_diamond_ring.jpg" },
-      { id:"house", name:"しあわせハウス", price:100000000, src:"images/chappy_sally_house.png" },
-      { id:"building", name:"ビル", price:10000000000, src:"images/cosmic_city_tower_building.png" }
-    ];
+  { id:"jet", name:"ジェット", price:3000000000 },
+  { id:"cruiser", name:"クルーザー", price:2000000000 },
+  { id:"rocket", name:"ロケット", price:5000000000 },
+  { id:"bike", name:"サイドカー", price:10000000 },
+  { id:"ring", name:"リング", price:5000000 },
+  { id:"house", name:"しあわせハウス", price:100000000 },
+  { id:"building", name:"ビル", price:10000000000 }
+];
 
     const app = document.getElementById("app");
     const heroImg = document.getElementById("heroImg");
@@ -1079,17 +1079,20 @@
       alert("✨宇宙銀行ATM✨\n\n" + item.name + " を購入しました💰");
       }
     function openShop(){
-      const itemsText = shopItems
-        .map((item, index) => `${index + 1}. ${item.name}（${formatYen(item.price)}）`)
-        .join("\n");
+  const itemsText = shopItems
+    .map((item, index) => `${index + 1}. ${item.name} ¥${formatYen(item.price)}`)
+    .join("\n");
 
-      const num = prompt("購入する番号を入力してね\n\n" + itemsText);
-      const item = shopItems[Number(num) - 1];
+  const num = prompt(
+    "購入番号を入力してね\n\n" + itemsText
+  );
 
-      if(item){
-        buyItem(item);
-      }
-    }
+  const item = shopItems[Number(num) - 1];
+
+  if(item){
+    buyItem(item);
+  }
+}
 
     function renderPassbook(){
       passbookBalance.textContent = formatYen(getBalance());
