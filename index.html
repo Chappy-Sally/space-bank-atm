@@ -1080,7 +1080,7 @@
       }
     function openShop(){
   const itemsText = shopItems
-    .map((item, index) => `${index + 1}. ${item.name} ¥${formatYen(item.price)}`)
+    .map((item, index) => `${index + 1}. ${item.name}  ${formatYen(item.price)}`)
     .join("\n");
 
   const num = prompt(
