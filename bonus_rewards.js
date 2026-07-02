@@ -1,32 +1,344 @@
-if(!IMG.bonusRewards) IMG.bonusRewards = [];
+// 🍀新緑・母の日エフェクト
+function showGreenEffect(){
 
-IMG.bonusRewards = [
-  { src:"images/chappy_sally_gold_train.png", title:"黄金トレインが到着〜🚂", value:5000000, chance:12 },
-  { src:"images/chappy_sally_gold_cart.png", title:"ゴールドトロッコが来たよ🛤️", value:5000000, chance:12 },
-  { src:"images/cosmic_abundance_boost.png", title:"黄金の金庫OPEN🌈", value:5000000, chance:10 },
-  { src:"images/cosmic_atm_with_chappy.png", title:"チャッピーがATM応援中🐶", value:5000000, chance:10 },
-  { src:"images/cosmic_bank_office.png", title:"宇宙銀行頭取に会う💫", value:888888888, chance:3 },
-  { src:"images/cosmic_devil_dog.png", title:"邪鬼が逃げた🌈厄祓い完了！", value:888888888, chance:3, chestDrop:true },
-  { src:"images/cosmic_galaxy_merry_go_round.png", title:"しあわせ銀河メリーゴーランド🎠", value:5000000, chance:6 },
-  { src:"images/cosmic_golden_fountain.png", title:"黄金の泉がわいてるよ⛲", value:5000000, chance:6 },
-  { src:"images/cosmic_golden_gift.png", title:"宇宙ギフトが届いたよ🎁", value:50000000, chance:5 },
-  { src:"images/cosmic_golden_throne.png", title:"黄金の部屋にご案内〜👑", value:5000000, chance:5 },
-  { src:"images/cosmic_light_gate.png", title:"光のゲートが開いてるよ✨", value:5000000, chance:6 },
-  { src:"images/cosmic_magic_spring.png", title:"ミラクルの泉が出てきたよ💫", value:5000000, chance:6 },
-  { src:"images/cosmic_magic_spring_rest.png", title:"ひと休みも豊かさのうちだよ🌙", value:5000000, chance:6 },
-  { src:"images/cosmic_ocean_wave_friends.png", title:"しあわせの波に乗ってるよ🌊", value:5000000, chance:6 },
-  { src:"images/cosmic_rainbow_roller_coaster.png", title:"虹のコースターで加速中〜🌈", value:5000000, chance:6 },
+  for(let i=0;i<24;i++){
 
-  // 🌈チャッピー＆サリー季節シリーズ
-  { src:"images/CS_rainbow_happiness.png", title:"虹の向こうからしあわせ到着〜🌈✨", value:7000000, chance:5 },
-  { src:"images/CS_hydrangea_frog.png", title:"しあわせがかえる季節だよ🐸🌈", value:6000000, chance:5 },
-  { src:"images/CS_hydrangea_rain.png", title:"やさしい雨が豊かさを育ててる☔✨", value:6000000, chance:5 },
-  { src:"images/CS_hydrangea_walk.png", title:"あじさいの小道で幸運みっけ💐✨", value:6000000, chance:5 },
+    const el=document.createElement("div");
+    el.className="greenEffect";
+    el.textContent="🍀";
 
-  // 🎋夏シリーズ
-  { src:"images/CS_tanabata_wish.png", title:"願いごとが天まで届いたよ🎋✨", value:7000000, chance:5 },
-  { src:"images/CS_starry_night.png", title:"満天の星から奇跡が降ってきた🌌✨", value:8000000, chance:5 },
-  { src:"images/CS_fireworks_yukata.png", title:"花火と一緒に幸運が打ち上がった🎆✨", value:10000000, chance:5 },
-  { src:"images/CS_summer_beach.png", title:"夏の海から豊かさがやってきた🏖️✨", value:8000000, chance:5 },
-  { src:"images/CS_summer_festival.png", title:"夏祭りでしあわせ受け取り増した🏮✨", value:9000000, chance:5 }
-];
+    el.style.left=Math.random()*100+"vw";
+    el.style.animationDuration=(2.8+Math.random()*3)+"s";
+    el.style.fontSize=(18+Math.random()*12)+"px";
+
+    document.body.appendChild(el);
+
+    setTimeout(()=>el.remove(),6000);
+
+  }
+
+}
+
+
+// 🎏こいのぼり
+function showKoinobori(){
+
+  const fish=document.createElement("div");
+
+  fish.className="koinoboriEffect";
+  fish.textContent="🎏";
+
+  fish.style.position="fixed";
+  fish.style.left="-70px";
+  fish.style.top="48%";
+  fish.style.opacity=".9";
+  fish.style.fontSize="44px";
+  fish.style.zIndex="9999";
+  fish.style.pointerEvents="none";
+  fish.style.filter="drop-shadow(0 8px 12px rgba(0,0,0,.35))";
+
+  document.body.appendChild(fish);
+
+  let x=-70;
+  let t=0;
+
+  const move=setInterval(()=>{
+
+    x+=4.5;
+    t+=0.12;
+
+    fish.style.left=x+"px";
+    fish.style.top=(48+Math.sin(t)*4)+"%";
+    fish.style.transform=`rotate(${Math.sin(t)*8}deg)`;
+
+    if(x>window.innerWidth+80){
+
+      clearInterval(move);
+      fish.remove();
+
+    }
+
+  },30);
+
+}
+
+
+// ⭐七夕用
+function showStarRain(){
+
+  for(let i=0;i<35;i++){
+
+    const star=document.createElement("div");
+
+    star.textContent=Math.random()>0.7?"🌠":"⭐";
+
+    star.style.position="fixed";
+    star.style.left=Math.random()*100+"vw";
+    star.style.top="-40px";
+    star.style.fontSize=(18+Math.random()*18)+"px";
+    star.style.zIndex="9999";
+    star.style.pointerEvents="none";
+
+    star.animate([
+
+      {
+        transform:"translateY(0px) scale(.7)",
+        opacity:0
+      },
+
+      {
+        transform:`translate(${Math.random()*120-60}px,${window.innerHeight+80}px) scale(1.2)`,
+        opacity:1
+      }
+
+    ],{
+
+      duration:2500+Math.random()*2500,
+      easing:"ease-in"
+
+    });
+
+    document.body.appendChild(star);
+
+    setTimeout(()=>star.remove(),5200);
+
+  }
+
+}
+
+
+// 🌠夜空専用・見えやすい流れ星
+function showShootingStar(){
+
+  for(let i=0;i<1;i++){
+
+    setTimeout(()=>{
+
+      const star=document.createElement("div");
+      star.textContent="🌠";
+
+      star.style.position="fixed";
+      star.style.left="85vw";
+      star.style.top=(10+Math.random()*35)+"vh";
+      star.style.fontSize=(34+Math.random()*16)+"px";
+      star.style.zIndex="99999";
+      star.style.pointerEvents="none";
+      star.style.opacity="1";
+
+      document.body.appendChild(star);
+
+      star.animate([
+        {
+          transform:"translate(0,0) scale(1)",
+          opacity:1
+        },
+        {
+          transform:"translate(-75vw,45vh) scale(1.25)",
+          opacity:1
+        },
+        {
+          transform:"translate(-95vw,60vh) scale(.8)",
+          opacity:0
+        }
+      ],{
+        duration:2200,
+        easing:"ease-out"
+      });
+
+      setTimeout(()=>star.remove(),2300);
+
+    },i*650);
+
+  }
+
+}
+
+
+// 🎆花火
+function showFireworks(){
+
+  for(let i=0;i<18;i++){
+
+    setTimeout(()=>{
+
+      const fire=document.createElement("div");
+
+      fire.textContent="🎆";
+
+      fire.style.position="fixed";
+      fire.style.left=(10+Math.random()*80)+"vw";
+      fire.style.top=(10+Math.random()*60)+"vh";
+      fire.style.fontSize=(40+Math.random()*28)+"px";
+      fire.style.opacity="0";
+      fire.style.zIndex="9999";
+      fire.style.pointerEvents="none";
+
+      fire.animate([
+
+        {
+          transform:"scale(.2)",
+          opacity:0
+        },
+
+        {
+          transform:"scale(1.4)",
+          opacity:1
+        },
+
+        {
+          transform:"scale(1)",
+          opacity:0
+        }
+
+      ],{
+
+        duration:1300
+
+      });
+
+      document.body.appendChild(fire);
+
+      setTimeout(()=>fire.remove(),1300);
+
+    },i*180);
+
+  }
+
+}
+
+
+// 🌊海
+function showBubbleEffect(){
+
+  for(let i=0;i<28;i++){
+
+    const b=document.createElement("div");
+
+    b.textContent=Math.random()>0.75?"🐬":"🫧";
+
+    b.style.position="fixed";
+    b.style.left=Math.random()*100+"vw";
+    b.style.bottom="-60px";
+    b.style.fontSize=(18+Math.random()*22)+"px";
+    b.style.zIndex="9999";
+    b.style.pointerEvents="none";
+
+    b.animate([
+
+      {
+        transform:"translateY(0)"
+      },
+
+      {
+        transform:`translate(${Math.random()*100-50}px,-${window.innerHeight+120}px)`
+      }
+
+    ],{
+
+      duration:3500+Math.random()*2000,
+      easing:"ease-out"
+
+    });
+
+    document.body.appendChild(b);
+
+    setTimeout(()=>b.remove(),6000);
+
+  }
+
+}
+
+
+// 🏮夏祭り
+function showLanternEffect(){
+
+  const icons=["🏮","🎈","✨","🎐"];
+
+  for(let i=0;i<22;i++){
+
+    const el=document.createElement("div");
+
+    el.textContent=icons[Math.floor(Math.random()*icons.length)];
+
+    el.style.position="fixed";
+    el.style.left=Math.random()*100+"vw";
+    el.style.top="-40px";
+    el.style.fontSize=(22+Math.random()*20)+"px";
+    el.style.zIndex="9999";
+    el.style.pointerEvents="none";
+
+    el.animate([
+
+      {
+        transform:"translateY(0) rotate(0deg)"
+      },
+
+      {
+        transform:`translate(${Math.random()*80-40}px,${window.innerHeight+80}px) rotate(${Math.random()*180-90}deg)`
+      }
+
+    ],{
+
+      duration:5000+Math.random()*2000
+
+    });
+
+    document.body.appendChild(el);
+
+    setTimeout(()=>el.remove(),7000);
+
+  }
+
+}
+
+
+// 季節判定
+function showSeasonEffect(reward){
+
+  if(!reward || !reward.src) return;
+
+  const src=reward.src.toLowerCase();
+
+  // 🎏
+  if(src.includes("kabuto") || src.includes("koinobori")){
+    showKoinobori();
+    return;
+  }
+
+  // 🍀
+  if(src.includes("mother") || src.includes("shinryoku")){
+    showGreenEffect();
+    return;
+  }
+
+  // 🎋七夕
+  if(src.includes("tanabata")){
+    showStarRain();
+    return;
+  }
+
+  // 🌌夜空
+if(src.includes("starry")){
+    showShootingStar();
+    return;
+}
+
+  // 🎆花火
+  if(src.includes("fireworks")){
+    showFireworks();
+    return;
+  }
+
+  // 🌊海
+  if(src.includes("beach") || src.includes("ocean")){
+    showBubbleEffect();
+    return;
+  }
+
+  // 🏮夏祭り
+  if(src.includes("festival") || src.includes("matsuri")){
+    showLanternEffect();
+    return;
+  }
+
+}
