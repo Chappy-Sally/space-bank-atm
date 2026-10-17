@@ -17,16 +17,10 @@ IMG.bonusRewards = [
   { src:"images/cosmic_ocean_wave_friends.png", title:"しあわせの波に乗ってるよ🌊", value:5000000, chance:6 },
   { src:"images/cosmic_rainbow_roller_coaster.png", title:"虹のコースターで加速中〜🌈", value:5000000, chance:6 },
 
-  // 🌈チャッピー＆サリー季節シリーズ
-  { src:"images/CS_rainbow_happiness.png", title:"虹の向こうからしあわせ到着〜🌈✨", value:7000000, chance:5 },
-  { src:"images/CS_hydrangea_frog.png", title:"しあわせがかえる季節だよ🐸🌈", value:6000000, chance:5 },
-  { src:"images/CS_hydrangea_rain.png", title:"やさしい雨が豊かさを育ててる☔✨", value:6000000, chance:5 },
-  { src:"images/CS_hydrangea_walk.png", title:"あじさいの小道で幸運みっけ💐✨", value:6000000, chance:5 },
-
-  // 🎋夏シリーズ
-  { src:"images/CS_tanabata_wish.png", title:"願いごとが天まで届いたよ🎋✨", value:7000000, chance:5 },
-  { src:"images/CS_starry_night.png", title:"満天の星から奇跡が降ってきた🌌✨", value:8000000, chance:5 },
-  { src:"images/CS_fireworks_yukata.png", title:"花火と一緒に幸運が打ち上がった🎆✨", value:10000000, chance:5 },
-  { src:"images/CS_summer_beach.png", title:"夏の海から豊かさがやってきた🏖️✨", value:8000000, chance:5 },
-  { src:"images/CS_summer_festival.png", title:"夏祭りでしあわせ受け取り増した🏮✨", value:9000000, chance:5 }
+  // 🍁秋シリーズ（夏・梅雨画像はファイルを残して次の季節に再利用）
+  { src:"images/aki_momijigari.png", title:"紅葉の小道でしあわせ見つけた🍁✨", value:7000000, chance:6 },
+  { src:"images/aki_minori.png", title:"実りの秋！豊かさを受け取り増した🌾✨", value:10000000, chance:6 },
+  { src:"images/aki_matsuri.png", title:"秋祭りで福がやってきた🏮🍁", value:8000000, chance:6 },
+  { src:"images/aki_Halloween-a.png", title:"ハロウィンのミラクルごほうび🎃✨", value:9000000, chance:5 },
+  { src:"images/aki_Halloween-b.png", title:"お菓子としあわせがいっぱい👻🍬", value:9000000, chance:5 }
 ];
