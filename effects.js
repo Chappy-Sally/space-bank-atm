@@ -292,12 +292,76 @@ function showLanternEffect(){
 }
 
 
+// 🍁秋の落ち葉・実り・秋祭り
+function showAutumnLeaves(type){
+  const icons = type === "festival" ? ["🍁","🏮","✨"] : type === "harvest" ? ["🍁","🍂","✨","🌾"] : ["🍁","🍂","✨"];
+  for(let i=0;i<18;i++){
+    const el=document.createElement("div");
+    el.textContent=icons[Math.floor(Math.random()*icons.length)];
+    el.style.position="fixed";
+    el.style.left=Math.random()*100+"vw";
+    el.style.top="-45px";
+    el.style.fontSize=(18+Math.random()*17)+"px";
+    el.style.zIndex="9999";
+    el.style.pointerEvents="none";
+    document.body.appendChild(el);
+    const duration=3500+Math.random()*2200;
+    el.animate([
+      {transform:"translate(0,0) rotate(0deg)",opacity:0},
+      {transform:"translate(20px,25vh) rotate(90deg)",opacity:1,offset:.2},
+      {transform:`translate(${Math.random()*160-80}px,105vh) rotate(300deg)`,opacity:0}
+    ],{duration,delay:i*110,easing:"ease-in-out"});
+    setTimeout(()=>el.remove(),duration+i*110+100);
+  }
+}
+
+// 🎃ハロウィンのふわふわ演出
+function showHalloweenEffect(){
+  const icons=["🎃","👻","🍬","✨"];
+  for(let i=0;i<14;i++){
+    const el=document.createElement("div");
+    el.textContent=icons[Math.floor(Math.random()*icons.length)];
+    el.style.position="fixed";
+    el.style.left=(5+Math.random()*90)+"vw";
+    el.style.bottom="-45px";
+    el.style.fontSize=(23+Math.random()*18)+"px";
+    el.style.zIndex="9999";
+    el.style.pointerEvents="none";
+    document.body.appendChild(el);
+    const duration=3000+Math.random()*1800;
+    el.animate([
+      {transform:"translateY(0) rotate(-10deg)",opacity:0},
+      {transform:"translateY(-30vh) rotate(10deg)",opacity:1,offset:.35},
+      {transform:"translateY(-85vh) rotate(-10deg)",opacity:0}
+    ],{duration,delay:i*130,easing:"ease-out"});
+    setTimeout(()=>el.remove(),duration+i*130+100);
+  }
+}
+
 // 季節判定
 function showSeasonEffect(reward){
 
   if(!reward || !reward.src) return;
 
   const src=reward.src.toLowerCase();
+
+  // 🍁秋
+  if(src.includes("aki_halloween")){
+    showHalloweenEffect();
+    return;
+  }
+  if(src.includes("aki_matsuri")){
+    showAutumnLeaves("festival");
+    return;
+  }
+  if(src.includes("aki_minori")){
+    showAutumnLeaves("harvest");
+    return;
+  }
+  if(src.includes("aki_momijigari")){
+    showAutumnLeaves("leaves");
+    return;
+  }
 
   // 🎏
   if(src.includes("kabuto") || src.includes("koinobori")){
