@@ -1,5 +1,6 @@
 if(!IMG.bonusRewards) IMG.bonusRewards = [];
 
+
 IMG.bonusRewards = [
   { src:"images/chappy_sally_gold_train.png", title:"黄金トレインが到着〜🚂", value:5000000, chance:12 },
   { src:"images/chappy_sally_gold_cart.png", title:"ゴールドトロッコが来たよ🛤️", value:5000000, chance:12 },
@@ -17,10 +18,12 @@ IMG.bonusRewards = [
   { src:"images/cosmic_ocean_wave_friends.png", title:"しあわせの波に乗ってるよ🌊", value:5000000, chance:6 },
   { src:"images/cosmic_rainbow_roller_coaster.png", title:"虹のコースターで加速中〜🌈", value:5000000, chance:6 },
 
-  // 🍁秋シリーズ（夏・梅雨画像はファイルを残して次の季節に再利用）
-  { src:"images/aki_momijigari.png", title:"紅葉の小道でしあわせ見つけた🍁✨", value:7000000, chance:6 },
-  { src:"images/aki_minori.png", title:"実りの秋！豊かさを受け取り増した🌾✨", value:10000000, chance:6 },
-  { src:"images/aki_matsuri.png", title:"秋祭りで福がやってきた🏮🍁", value:8000000, chance:6 },
-  { src:"images/aki_Halloween-a.png", title:"ハロウィンのミラクルごほうび🎃✨", value:9000000, chance:5 },
-  { src:"images/aki_Halloween-b.png", title:"お菓子としあわせがいっぱい👻🍬", value:9000000, chance:5 }
+
+  // ❄️冬シリーズ（秋・夏などの画像はファイルを残して次の季節に再利用）
+  { src:"images/fuyu_christmas-a.png", title:"サンタさんからのごほうび🎅🎁", value:9000000, chance:5 },
+  { src:"images/fuyu_christmas-b.png", title:"クリスマスのミラクルごほうび🎄✨", value:9000000, chance:5 },
+  { src:"images/fuyu_snow.png", title:"雪の日のごほうび❄️✨", value:7000000, chance:6 },
+  { src:"images/fuyu_aurora.png", title:"オーロラのごほうび🌌✨", value:10000000, chance:6 },
+  { src:"images/fuyu_hoshizora.png", title:"冬の星空のごほうび🌠", value:8000000, chance:6 }
 ];
+
